@@ -1,0 +1,125 @@
+.bodySingUp{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(246, 246, 246, 0.551);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ladoCadastro{
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#tituloLadoCadastro{
+  width: 100%;
+  height: auto;
+  font-size: 2rem;
+  font-weight: 300;
+}
+.divTituloCadastro{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 0rem 0rem 2rem; 
+  margin-top: 1rem;
+}
+.boxCadastro{
+  width: 80%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  background-color: rgba(214, 212, 212, 0.452);
+  border-radius: 0.5rem;
+}
+
+#tituloBoxCadastro{
+  width: 100%;
+  height: auto;
+  margin: 2rem 1rem 1rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.inputSingCadastro{
+  width: 90%;
+  height: auto;
+  padding: 0.7rem;
+  border: 0;
+  border-bottom: 0.1rem solid black;
+  margin: 0.6rem;
+  outline: none;
+  background-color: transparent;
+}
+.divInputPasswordCadastro{
+  width: 90%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inputSingPassowordCadastro{
+  width: 100%;
+  height: auto;
+  padding: 0.7rem;
+  border: 0;
+  border-bottom: 0.1rem solid black;
+  margin: 0.6rem 0rem;
+  outline: none;
+  position: relative;
+  background-color: transparent;
+}
+
+#btnVizualizarPasswordCadastro{
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  margin: 0rem 0rem 0rem 0.5rem;
+  padding: 0rem 0.4rem;
+  font-size: 1.5rem;
+}
+.btnCadastro{
+  width: 90%;
+  height: auto;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 0;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 1.5rem 0rem 1rem 0rem;
+}
+
+.blocoLinksCadastro{
+  width: 90%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0rem;
+}
+
+#linksBoxCadastro{
+  width: auto;
+  height: auto;
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: start;
+  color: blue;
+}
+
+.ladoComentariosCadastro{
+  width: 50%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.366);
+}

@@ -1,0 +1,223 @@
+/* RESET WEB */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo da DATA em cima dos blocos */
+.nomeDataDia{
+    width: 100%;
+    height: auto;
+    text-align: start;
+    padding-left: 5rem;
+    font-size: 1.5rem;
+    color: #E8751A;
+    font-weight: bold;
+}
+
+/* Espaço que localiza as DIVS */
+.containerBloco{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Blocos Principais */
+.divBloco {
+    width: 90%;
+    height: auto;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+}
+.espacoDosBlocos{
+    width: 100%;
+}
+
+.notData{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notData h1{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Separadores do bloco */
+.ladoDeCima{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#ladoDeBaixo{
+    width: 100%;
+    height:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Estilo do espaços do nome */
+.blocoNome{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #30950be7;
+    font-size: 1rem;;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    padding: 0.5rem;
+    border-radius: 0.2rem 0rem 0rem 0rem; 
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilo do espaços do HORARIO INICIAL*/
+.blocoHoraInicial{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #30950be7;
+    font-size: 1rem;
+    text-align: center;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Estilo do espaços da DESCRIÇÂO*/
+.descricao{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #30950be7;
+    font-size: 1rem;
+    text-align: center;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    padding: 0.5rem;
+    border-radius: 0rem 0rem 0rem 0.2rem; 
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilo do espaços dos VALORES*/
+.valorServico{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #30950be7;
+    font-size: 1rem;
+    text-align: center;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    padding: 0.5rem;
+    border-radius: 0rem 0.2rem 0rem 0rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilo do espaços das FORMAS DE PAGAMENTO*/
+.formaDePagamento{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #30950be7;
+    font-size: 1rem;
+    text-align: center;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    padding: 0.5rem;
+    border-radius: 0rem 0rem 0.2rem 0rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* DIV criada para deixar as frases em cor BLACK */
+#escritaDiv{
+    color: rgba(0, 0, 0, 0.692);
+    font-weight: normal;
+    margin-right: 0.2rem;
+}
+
+/* Preenchimento para ainhar items */
+.preenchimento{
+    width: 4.5%;
+}
+
+#escritahora{
+    color: black;
+    font-weight: normal;
+    margin: 0rem 0.2rem;
+}
+
+  
+
+/*Para tamanho de tela para CELULARES */
+@media (max-width: 600px) {
+    .nomeDataDia{
+        padding-left: 0px;
+        font-size: 20px;
+        text-align: start;
+        padding-left: 20px;
+    }
+    .blocoStatus{
+        width: 3%;
+    }
+    .status{
+        width: 15px;
+        height: 15px;
+    }
+    .divBloco {
+      width: 95%;
+      margin: 15px 0px;
+    }
+    .blocoNome{
+        font-size: 1rem;
+    }
+    .blocoHoraInicial{
+        font-size: 1rem;
+        flex-direction: column;
+    }
+    .descricao{
+        font-size: 1rem;
+        flex-direction: column;
+    }
+    .formaDePagamento{
+        font-size: 1rem;
+        flex-direction: column;
+    }
+    .valorServico{
+        font-size: 1rem;
+        flex-direction: column;
+    }
+    #ladoDeBaixo{
+        height: 6rem;
+    }
+    .ladoDeCima{
+        height: 6rem;
+    }
+  }
