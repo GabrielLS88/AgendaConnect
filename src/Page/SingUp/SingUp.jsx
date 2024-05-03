@@ -35,8 +35,9 @@ function SingUp() {
     <div className="ladoCadastro">
       <div className="boxCadastro">
         <h2 id='tituloBoxCadastro'>Cadastrar</h2>
-        <input id='idUser' className='inputSingCadastro' type="text" placeholder='Nome' />
-        <input id='nameUser' className='inputSingCadastro' type="text" placeholder='E-mail' />
+        <input id='nomeUser' className='inputSingCadastro' type="text" placeholder='Nome' />
+        <input id='phoneUser' className='inputSingCadastro' type="text" placeholder='Telefone' />
+        <input id='emailUser' className='inputSingCadastro' type="text" placeholder='E-mail' />
         <div className="divInputPasswordCadastro">
           <input id='passwordUser' className='inputSingPassowordCadastro'  type={passwordVisivel ? "text" : "password"} placeholder='Senha' /><i id='btnVizualizarPasswordCadastro' class="bi bi-eye-fill" onClick={converteParaTexto}></i>
         </div>
@@ -45,10 +46,6 @@ function SingUp() {
           <a id='linksBoxCadastro' href="/">Ja sou cliente?</a>
         </div>
       </div>
-    </div>
-
-    <div className="ladoComentariosCadastro">
-      <Apresentacao Logo={Logo} />
     </div>
    </div>
   )

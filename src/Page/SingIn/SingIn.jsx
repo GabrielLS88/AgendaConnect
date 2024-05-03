@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './SingIn.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
-import Apresentacao from '../../Componentes/Apresentacao/Apresentacao';
-import Logo from "../../assets/Sistema.jpg"
 
 function SingIn() {
   const [passwordVisivel, setPasswordVisivel] = useState(false);
@@ -18,17 +16,16 @@ function SingIn() {
   };
 
   const ClickEntrar = () => {
-    const idUser = document.getElementById('idUser').value;
     const nameUser = document.getElementById('nameUser').value;
     const passwordUser = document.getElementById('passwordUser').value;
 
-    if (idUser === "" || nameUser === "" || passwordUser === "") {
+    if (nameUser === "" || passwordUser === "") {
       setMensagemAlerta('Por favor, preencha todos os campos antes de prosseguir o login.');
       setExibirAlerta(true);
-    }else if(idUser != "123" || nameUser != "123" || passwordUser != "123"){
+    }else if(nameUser != "123" || passwordUser != "123"){
       setMensagemAlerta('Usuário ou senha incorretos.');
       setExibirAlerta(true);
-    }else if(idUser === "123" || nameUser === "123" || passwordUser === "123"){
+    }else if(nameUser === "123" || passwordUser === "123"){
       const token = "Autorizado";
       localStorage.setItem("token", token);
       window.location.href = "/home";
@@ -43,7 +40,6 @@ function SingIn() {
       <div className="ladoLogin">
         <div className="boxLogin">
           <h2 id='tituloBoxLogin'>LOGIN</h2>
-          <input id='idUser' className='inputSingLogin' type="text" placeholder='Id' />
           <input id='nameUser' className='inputSingLogin' type="text" placeholder='Usuário' />
           <div className="divInputPasswordLogin">
             <input id='passwordUser' className='inputSingPassowordLogin' type={passwordVisivel ? "text" : "password"} placeholder='Senha' /><i id='btnVizualizarPasswordLogin' className="bi bi-eye-fill" onClick={converteParaTexto}></i>
@@ -54,10 +50,6 @@ function SingIn() {
             <a id='linksBoxLogin2' href="/singup">Novo Cliente?</a>
           </div>
         </div>
-      </div>
-
-      <div className="ladoComentariosLogin">
-        <Apresentacao Logo={Logo} />
       </div>
     </div>
   )

@@ -4,11 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem;
 }
 
 .oculparEspaçoHeader{
     width: 15%;
+    height: 100%;
+
 }
 
 .blocoTeste{
@@ -16,16 +17,21 @@
     height: 100%;
     margin-left: 0.5rem;
     border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content:start;
+    flex-direction: column;
 }
 
 .blocosemanais{
     width: 100%;
     height: auto;
     padding: 1rem;
+
 }
 
 .blocoProgresso{
-    width: 100%;
+    width: 90%;
     height: auto;
     padding: 1rem;
 }

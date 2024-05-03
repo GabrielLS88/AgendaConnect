@@ -20,12 +20,12 @@
     font-size: 1.8rem;
     margin-top: 1rem;
     font-weight: 300;
+    text-decoration: underline;
 }
 
 .imagenUsuarioApresentacao{
     width: 60%;
     height: auto;
-    border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,10 +35,14 @@
 #imgLogoAvatarApresentacao{
     width: 100%;
     height: 100%;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
 }
 
 #textoApresentacao{
     padding: 0rem 2rem 0rem 2rem;
     margin-bottom: 1rem;
+}
+
+#tituloInstagram{
+    font-size: 1.2rem;
 }

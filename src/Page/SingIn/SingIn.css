@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  background-color: rgba(214, 212, 212, 0.452);
+  
   border-radius: 0.5rem;
 }
 
@@ -48,6 +48,7 @@
   background-color: transparent;
 }
 .divInputPasswordLogin{
+  position: relative;
   width: 90%;
   height: auto;
   display: flex;
@@ -73,6 +74,8 @@
   margin: 0rem 0rem 0rem 0.5rem;
   padding: 0rem 0.4rem;
   font-size: 1.5rem;
+  position: absolute;
+  right: 0;
 }
 .btnEntrarLogin{
   width: 90%;
@@ -119,5 +122,5 @@
 .ladoComentariosLogin{
   width: 50%;
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.366);
+  background-color: rgba(214, 212, 212, 0.452);
 }

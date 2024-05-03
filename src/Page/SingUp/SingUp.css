@@ -36,7 +36,6 @@
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  background-color: rgba(214, 212, 212, 0.452);
   border-radius: 0.5rem;
 }
 
@@ -47,6 +46,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
+  color: #00BF63;
 }
 
 .inputSingCadastro{
@@ -60,6 +60,7 @@
   background-color: transparent;
 }
 .divInputPasswordCadastro{
+  position: relative;
   width: 90%;
   height: auto;
   display: flex;
@@ -74,7 +75,6 @@
   border-bottom: 0.1rem solid black;
   margin: 0.6rem 0rem;
   outline: none;
-  position: relative;
   background-color: transparent;
 }
 
@@ -85,13 +85,15 @@
   margin: 0rem 0rem 0rem 0.5rem;
   padding: 0rem 0.4rem;
   font-size: 1.5rem;
+  position: absolute;
+  right: 0;
 }
 .btnCadastro{
   width: 90%;
   height: auto;
   padding: 0.5rem;
   cursor: pointer;
-  background-color: black;
+  background-color: #00BF63;
   color: white;
   border: 0;
   border-radius: 0.2rem;
