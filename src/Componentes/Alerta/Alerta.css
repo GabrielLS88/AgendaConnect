@@ -9,11 +9,12 @@
     z-index: 1;
 }
 
-.blocoAlerta{
+.blocoAlerta {
     width: 30%;
     height: 30%;
     background-color: rgba(0, 0, 0, 0.567);
-    position: absolute;
+    position: fixed;
+    top: 0;
     z-index: 1;
     border-radius: 0.2rem;
     padding: 1rem;
@@ -22,6 +23,16 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
+    animation: alertaDescendo 1s forwards;
+}
+
+@keyframes alertaDescendo {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
 }
 
 .blocoMensagemDoAlerta{

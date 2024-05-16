@@ -37,6 +37,7 @@
   justify-content: start;
   flex-direction: column;
   border-radius: 0.5rem;
+  border: #00BF63 0.2rem solid;
 }
 
 #tituloBoxCadastro{
@@ -124,4 +125,10 @@
   width: 50%;
   height: 100%;
   background-color: rgba(128, 128, 128, 0.366);
+}
+
+@media (min-width: 200px) and (max-width: 600px) { 
+  .ladoCadastro{
+    width: 90%;
+  }
 }

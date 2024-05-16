@@ -11,7 +11,7 @@ function MainRoutes() {
   return (
     <Routes>
       <Route path="/" element={<SingIn />} />
-      <Route path="/signup" element={<SingUp />} />
+      <Route path="/singup" element={<SingUp />} />
       <Route path="/" element={<PrivateRoute />}>
         <Route path="/home" element={<Home />} />
         <Route path="/agenda" element={<Agendamento />} />

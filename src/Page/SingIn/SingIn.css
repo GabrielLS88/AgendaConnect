@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  
+  border: #00BF63 0.2rem solid;
   border-radius: 0.5rem;
 }
 
@@ -123,4 +123,10 @@
   width: 50%;
   height: 100%;
   background-color: rgba(214, 212, 212, 0.452);
+}
+
+@media (min-width: 200px) and (max-width: 600px) { 
+  .ladoLogin{
+    width: 90%;
+  }
 }
