@@ -2,36 +2,27 @@
     width: 100%;
     height: 100%;
     display: flex;
+    align-items: start;
     justify-content: center;
-    align-items: center;
 }
 
-.oculparEspaçoHeader{
-    width: 15%;
-    height: 100%;
-
-}
 
 .blocoTeste{
     width: 100%;
     height: 100%;
-    margin-left: 0.5rem;
     border-radius: 0.2rem;
-    display: flex;
-    align-items: center;
-    justify-content:start;
-    flex-direction: column;
+    margin-top: 20vh;
 }
 
 .blocosemanais{
     width: 100%;
     height: auto;
-    padding: 1rem;
-
+    text-align: center;
 }
 
 .blocoProgresso{
-    width: 90%;
+    width: 100%;
     height: auto;
-    padding: 1rem;
+    padding: 0rem 2rem;
+
 }

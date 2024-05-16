@@ -6,3 +6,15 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+::-webkit-scrollbar-thumb {
+  background:  #E8751A;
+}

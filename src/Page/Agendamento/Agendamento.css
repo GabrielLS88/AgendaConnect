@@ -1,0 +1,179 @@
+
+.bodyAgendamento{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.corpo{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    margin-top: 20vh;
+}
+.body{
+    width: 90%;
+    height: auto;
+    border: 0;
+    border-radius: 0.2rem;
+    padding: 20px;
+
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+}
+.namesInput{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.namesInput input {
+    width: 100%;
+    height: 2.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    border-radius: 0.2rem;
+    padding: 10px;
+    margin: 10px 0px;
+    color: rgb(8, 8, 8);
+    background-color: white;
+    font-size: 15px;
+}
+
+/* nomes input da data */
+#appt{
+    width: auto;
+    height: 2.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    border-radius: 0.2rem;
+    padding: 10px;
+    margin: 10px 0px;
+    color: rgb(8, 8, 8);
+    background-color: white;
+    font-size: 15px;
+}
+
+.namesInput input:hover{
+    cursor: text;
+}
+
+::-webkit-input-placeholder {
+    color: black;
+    font: 20px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(20deg);
+    font-size: 20px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(20deg);
+    font-size: 20px;
+}
+.divNomeFicha{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+}
+.nomeFicha{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #E8751A;
+    margin-bottom: 0.5rem;
+}
+
+#opcoesPagamento{
+    width: 100%;
+    height: 2.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    margin: 10px 0 ;
+    color: rgb(8, 8, 8);
+    background-color: white;
+    font-size: 15px;
+}
+
+.espacoBtn {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.espacoBtn button {
+    width: 9rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: white;
+}
+
+#btnAgendar{
+    background-color: #E8751A;
+}
+
+.divInputHoras{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divInputHoras input{
+    width: 49%;
+    height: 2.5rem;
+}
+
+@media (min-width: 600px) and (max-width: 1024px) { 
+    .body{
+        border: 0.1rem solid rgba(0, 0, 0, 0.526);
+        margin-top: 15vh;
+    }
+
+    .namesInput input {
+        width: 100%;
+        height: 4rem;
+        border: 0.1rem solid rgba(0, 0, 0, 0.526)
+    }
+
+    #appt{
+        width: auto;
+        height: 4rem;
+        border: 0.1rem solid rgba(0, 0, 0, 0.526)
+    }
+
+    #opcoesPagamento{
+        width: 100%;
+        height: 4rem;
+        border: 0.1rem solid rgba(0, 0, 0, 0.526)
+    }
+
+    .divInputHoras input{
+        width: 49%;
+        height: 4rem;
+        border: 0.1rem solid rgba(0, 0, 0, 0.526)
+    }
+
+    .nomeFicha{
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+}

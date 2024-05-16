@@ -1,3 +1,10 @@
+/* RESET WEB */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Estilo da DATA em cima dos blocos */
 .nomeDataDia{
     width: 100%;
@@ -28,7 +35,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 0.3rem;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
 }
 .espacoDosBlocos{
     width: 100%;
@@ -72,7 +79,7 @@
     align-items: center;
     color: #00BF63;
     font-size: 1rem;;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
     padding: 0.5rem;
     border-radius: 0.2rem 0rem 0rem 0rem; 
     font-weight: bold;
@@ -89,7 +96,7 @@
     color: #00BF63;
     font-size: 1rem;
     text-align: center;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
     padding: 0.5rem;
     text-align: center;
     font-weight: bold;
@@ -106,7 +113,7 @@
     color: #00BF63;
     font-size: 1rem;
     text-align: center;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
     padding: 0.5rem;
     border-radius: 0rem 0rem 0rem 0.2rem; 
     font-weight: bold;
@@ -123,7 +130,7 @@
     color: #00BF63;
     font-size: 1rem;
     text-align: center;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
     padding: 0.5rem;
     border-radius: 0rem 0.2rem 0rem 0rem;
     font-weight: bold;
@@ -140,7 +147,7 @@
     color: #00BF63;
     font-size: 1rem;
     text-align: center;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgba(0, 0, 0, 0.251);
     padding: 0.5rem;
     border-radius: 0rem 0rem 0.2rem 0rem;
     font-weight: bold;
