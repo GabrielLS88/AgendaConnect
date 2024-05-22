@@ -41,8 +41,6 @@
     width: 100%;
 }
 
-
-/* Separadores do bloco */
 .ladoDeCima{
     width: 100%;
     height: auto;
@@ -70,7 +68,6 @@
     margin-top: 1rem;
 }
 
-/* Estilo do espaços do nome */
 .blocoNome{
     width: 30%;
     height: 100%;
@@ -86,7 +83,6 @@
     text-align: center;
 }
 
-/* Estilo do espaços do HORARIO INICIAL*/
 .blocoHoraInicial{
     width: 50%;
     height: 100%;
@@ -102,8 +98,6 @@
     font-weight: bold;
 }
 
-
-/* Estilo do espaços da DESCRIÇÂO*/
 .descricao{
     width: 50%;
     height: 100%;
@@ -120,7 +114,6 @@
     text-align: center;
 }
 
-/* Estilo do espaços dos VALORES*/
 .valorServico{
     width: 20%;
     height: 100%;
@@ -137,7 +130,6 @@
     text-align: center;
 }
 
-/* Estilo do espaços das FORMAS DE PAGAMENTO*/
 .formaDePagamento{
     width: 50%;
     height: 100%;
@@ -154,15 +146,12 @@
     text-align: center;
 }
 
-
-/* DIV criada para deixar as frases em cor BLACK */
 #escritaDiv{
     color: rgba(0, 0, 0, 0.692);
     font-weight: normal;
     margin-right: 0.2rem;
 }
 
-/* Preenchimento para ainhar items */
 .preenchimento{
     width: 4.5%;
 }
@@ -218,5 +207,8 @@
     }
     .ladoDeCima{
         height: 6rem;
+    }
+    .notData{
+        text-align: center;
     }
   }

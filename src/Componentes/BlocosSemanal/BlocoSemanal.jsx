@@ -65,7 +65,7 @@ const Blocos = () => {
     return `${ano}-${mes}-${dia}`;
   };
 
-  const diasDasDatas = [0, 1, 2, 3, 4, 5, 6]; // Dias a serem mostrados a partir do dia atual
+  const diasDasDatas = [0, 1, 2, 3, 4, 5, 6];
 
   const ordenarPorData = (grupoPorData) => {
     const datasOrdenadas = Object.keys(grupoPorData).sort((a, b) => {

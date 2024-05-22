@@ -1,4 +1,4 @@
-import Header from '../../Componentes/Header/App';
+import Header from '../../Componentes/HeaderOriginal/Header';
 import BlocosSemanal from '../../Componentes/BlocosSemanal/BlocoSemanal';
 import Progress from '../../Componentes/Progress/App';
 import './Home.css';
@@ -6,7 +6,7 @@ import './Home.css';
 function Home() {
   return (
     <div className='bodyHome'>
-     <Header />
+     
       <div className="blocoTeste">
         <div className="blocosemanais">
           <BlocosSemanal/>  
@@ -16,6 +16,7 @@ function Home() {
         </div>
         
       </div>
+      <Header />
     </div>
   )
 }

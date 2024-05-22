@@ -220,4 +220,7 @@
     .ladoDeCima{
         height: 6rem;
     }
+    .notData{
+        text-align: center;
+    }
   }

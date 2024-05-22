@@ -1,11 +1,13 @@
-import React from 'react';
-import Header from '../../Componentes/Header/App';
+import React, { useState } from 'react';
+import Header from '../../Componentes/HeaderOriginal/Header';
 import './Agendamento.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
 
 function Agendamento() {
+  const [exibirAlerta, setExibirAlerta] = useState(false);
+  const [mensagemAlerta, setMensagemAlerta] = useState('');
+
   const handleAgendar = async () => {
-    // Recolher valores dos INPUTS para enviar a planilha
     const nomecliente = document.getElementById('nomeInput').value;
     const data = document.getElementById('dataInput').value;
     const valor = document.getElementById('valorInput').value;
@@ -15,7 +17,8 @@ function Agendamento() {
     const pagamento = document.getElementById('opcoesPagamento').value;
 
     if(nomecliente == '' || data == '' || valor == '' || horariofinal == '' || horarioinicial == '' || descricao == '' || pagamento == ''){
-      alert("Alguns dados não foram preenchidos")
+      setMensagemAlerta('Alguns dados não foram preenchidos!');
+      setExibirAlerta(true);
     } else{
 
     const apiUrl =
@@ -39,22 +42,28 @@ function Agendamento() {
     });
 
     if (response.ok) {
-      alert('Cadastro feito com sucesso');
+      setMensagemAlerta('Cadastro feito com sucesso...');
+      setExibirAlerta(true);
     } else {
-      alert('Falha no cadastro! Tente novamente');
+      setMensagemAlerta('Falha no cadastro. Tente novamente!');
+      setExibirAlerta(true);
     }
 
   } catch (error) {
-    alert('Error:', error);
+    setMensagemAlerta('Error:', error);
+      setExibirAlerta(true);
   }
   }
+  };
 
-    
+  const fecharAlerta = () => {
+    setExibirAlerta(false);
   };
 
   return (
     <div className='bodyAgendamento'>
-      <Header />
+      {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
+        <Header />
       <div className="corpo">
         <div className="body">
           <div className='divNomeFicha'>
@@ -98,6 +107,7 @@ function Agendamento() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

@@ -1,0 +1,230 @@
+.bodyHeader {
+  width: 100%;
+  height: 13%;
+  position: absolute;
+  z-index: 1000; 
+}
+
+
+.menuParteDeCima{
+    width: 100%;
+    height: 100%;
+    background-color: #00BF63;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+}
+
+.divIconeMenu{
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+#marca{
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.blocoNomeMarca{
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#iconMenu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 0.5rem 0rem 2rem;
+  font-size: 2.3rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: white;
+}
+
+#iconMenu:hover{
+  font-size: 2.5rem;
+}
+
+.perfilIcones{
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressoLocalPage{
+  width: 40%;
+  height: auto;
+  display: flex;
+  text-align: start;
+}
+
+
+#iconesPerfilSino{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: white;
+}
+
+#iconesPerfilSino:hover{
+  color: red;
+  font-size: 1.6rem;
+}
+
+
+
+.blocoMenu {
+    width: 15%;
+    height: 100vh;
+    background-color: #027a40;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    text-align: center;
+    animation: slideOut 0.5s forwards;
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  
+  @keyframes slideOutRight {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .blocoMenu.show {
+    animation: slideInRight 0.5s forwards;
+  }
+  
+  .blocoMenu.hide {
+    animation: slideOutRight 0.5s forwards;
+  }
+  
+
+.blocoLinks{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    text-align: center;
+    margin: 2rem 0rem 3rem;
+    z-index: 999;
+}
+
+#divLinks{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0.5rem;
+    z-index: 999;
+}
+
+#linksMenu{
+    color:white;
+    text-decoration: none;
+    margin: 1rem 0rem;
+    font-size: 1rem;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+#linksMenu:hover{
+    color: #E8751A;
+    font-size: 1.1rem;
+}
+
+#logoIconMenu{
+    font-size: 1.2rem;
+}
+
+
+
+
+.blocoLogout{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#btnLogout{
+    width: 40%;
+    height: auto;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0.2rem;
+    background-color: black;
+    padding: 0.1rem 0.3rem;
+    color: white;
+}
+
+.blocoLogout p {
+    width: auto !important;
+    height: auto !important;
+    font-size: 1.1rem;
+}
+
+
+@media (max-width: 900px) { 
+  #marca{
+    font-size: 1.3rem;
+  }
+
+  .blocoMenu {
+    width: 80%;
+    height: 100%;
+    z-index: 9;
+  }
+}
