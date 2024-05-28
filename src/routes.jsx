@@ -9,14 +9,16 @@ import { Routes, Route } from "react-router-dom";
 
 function MainRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<SingIn />} />
-      <Route path="/singup" element={<SingUp />} />
-      <Route path="/" element={<PrivateRoute />}>
-        <Route path="/home" element={<Home />} />
-        <Route path="/agenda" element={<Agendamento />} />
-        <Route path="/historico" element={<Historico />} />
-      </Route>
+    <Routes basename="/AgendaConnect">
+      <Switch>
+        <Route exact path="/" element={<SingIn />} />
+        <Route path="/singup" element={<SingUp />} />
+        <Route path="/" element={<PrivateRoute />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/agenda" element={<Agendamento />} />
+          <Route path="/historico" element={<Historico />} />
+        </Route>
+      </Switch>
     </Routes>
   );
 }
