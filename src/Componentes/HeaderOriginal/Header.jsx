@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import Alerta from '../Alerta/Alerta';
 
 function Header() {
   const [exibirAlerta, setExibirAlerta] = useState(false);
   const [mensagemAlerta, setMensagemAlerta] = useState('');
+  const [menuAberto, setMenuAberto] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuAberto(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const ClickLogout = () => {
     localStorage.clear();
-  }
+  };
 
   const fecharAlerta = () => {
     setExibirAlerta(false);
@@ -17,22 +32,11 @@ function Header() {
   const NotificacaoSino = () => {
     setMensagemAlerta('Você ainda não possui notificações!');
     setExibirAlerta(true);
-  }
+  };
 
   const OpenMenu = () => {
-    let menu = document.querySelector('.blocoMenu');
-    const isOpen = menu.classList.contains('show');
-  
-    if (isOpen) {
-      menu.classList.remove('show');
-      menu.classList.add('hide');
-    } else {
-      menu.classList.remove('hide');
-      menu.classList.add('show');
-    }
-  }
-  
-
+    setMenuAberto(!menuAberto);
+  };
 
   return (
     <div className='bodyHeader'>
@@ -40,17 +44,17 @@ function Header() {
       <div className='menuParteDeCima'>
 
         <div className="divIconeMenu">
-          <i class="bi bi-list" id='iconMenu' onClick={OpenMenu}></i>
+          <i className="bi bi-list" id='iconMenu' onClick={OpenMenu}></i>
           <div className="blocoNomeMarca">
              <p id='marca'>Agenda Connect</p>
           </div>
         </div>
         <div className="perfilIcones">
-          <i id='iconesPerfilSino' onClick={NotificacaoSino} class="bi bi-bell-fill"></i>
+          <i id='iconesPerfilSino' onClick={NotificacaoSino} className="bi bi-bell-fill"></i>
         </div>
 
       </div>
-      <div className="blocoMenu">
+      <div className={`blocoMenu ${menuAberto ? 'show' : 'hide'}`} ref={menuRef}>
         <div className="blocoLinks">
           <div id='divLinks'><a id='linksMenu' href="/home">Home</a></div>
           <div id='divLinks'><a id='linksMenu' href="/agenda">Agendamento</a></div>
@@ -58,7 +62,6 @@ function Header() {
           <div id='divLinks'><a id='linksMenu' href="/home">Produtos</a></div>
           <div id='divLinks'><a id='linksMenu' onClick={ClickLogout} href="/">Sair</a></div>
         </div>
-       
       </div>
     </div>
   );

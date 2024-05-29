@@ -22,10 +22,10 @@ function SingIn() {
     if (nameUser === "" || passwordUser === "") {
       setMensagemAlerta('Por favor, preencha todos os campos antes de prosseguir o login.');
       setExibirAlerta(true);
-    }else if(nameUser != "123" || passwordUser != "123"){
+    }else if(nameUser != "Bianca" || passwordUser != "2910"){
       setMensagemAlerta('Usuário ou senha incorretos.');
       setExibirAlerta(true);
-    }else if(nameUser === "123" || passwordUser === "123"){
+    }else if(nameUser === "Bianca" || passwordUser === "2910"){
       const token = "Autorizado";
       localStorage.setItem("token", token);
       window.location.href = "/home";

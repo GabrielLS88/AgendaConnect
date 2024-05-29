@@ -100,7 +100,7 @@
 .blocoMenu {
     width: 15%;
     height: 100vh;
-    background-color: #027a40;
+    background: linear-gradient(to bottom, #01914b, #01914b, #01c968, #99ffcc);
     display: flex;
     align-items: center;
     justify-content: start;
