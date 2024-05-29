@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../Componentes/HeaderOriginal/Header';
+import Header from '../../Componentes/HeaderOriginalAtual/Header';
 import BlocosSemanal from '../../Componentes/BlocosSemanal/BlocoSemanal';
 import Progress from '../../Componentes/Progress/App';
 import './Home.css';
@@ -21,9 +21,11 @@ function Home() {
           throw new Error(`Erro na solicitação: ${response.status}`);
         }
         const jsonData = await response.json();
+        
         let valor = 0;
         for (let i = 0; i < jsonData.length; i++) {
-            valor += jsonData[i];
+          let valorConverido = parseFloat(jsonData[i])
+            valor = valor + valorConverido;
         }
         setData(valor);
       } catch (error) {
