@@ -23,14 +23,13 @@
     text-align: center;
     margin: 2rem 0rem;
     padding: 2rem;
+    background-color: #00BF63;
+    border-radius: 0.1rem;
 }
 
 .blocoValorMensal p{
     font-size: 1.4rem;
-}
-
-#valorMensal{
-    color:#E8751A;
+    color: white;
 }
 
 .blocosemanais{
