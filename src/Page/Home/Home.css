@@ -20,16 +20,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 1rem 0rem;
+}
+
+.subBlocoValorMensal{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin: 2rem 0rem;
-    padding: 2rem;
     background-color: #00BF63;
     border-radius: 0.1rem;
 }
 
-.blocoValorMensal p{
-    font-size: 1.4rem;
+.subBlocoValorMensal p{
+    font-size: 1.5rem;
     color: white;
+    margin-top: 1rem;
 }
 
 .blocosemanais{
@@ -41,6 +49,6 @@
 .blocoProgresso{
     width: 100%;
     height: auto;
-    padding: 0rem 2rem;
+    padding: 0rem 4.2rem;
 
 }

@@ -99,7 +99,7 @@
 .blocoMenu {
     width: 15%;
     height: 100vh;
-    background: linear-gradient(to bottom, #01914b, #01914b, #01c968, #99ffcc);
+    background: linear-gradient(to bottom,#005a2f, #01914b, #01914b, #01c968, #99ffcc);
     display: flex;
     align-items: center;
     justify-content: start;

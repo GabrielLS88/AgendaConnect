@@ -44,7 +44,9 @@ function Home() {
           <BlocosSemanal />  
         </div>
         <div className="blocoValorMensal">
-          <p>O valor de vendas está no total de: R$ {data}</p>
+          <div className="subBlocoValorMensal">
+            <p>O valor das vendas mensais está no total de: R${data}</p>
+          </div>
         </div>
         <div className="blocoProgresso">
           <Progress />
