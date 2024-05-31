@@ -3,13 +3,16 @@ import Header from '../../Componentes/HeaderOriginalAtual/Header';
 import BlocosSemanal from '../../Componentes/BlocosSemanal/BlocoSemanal';
 import Progress from '../../Componentes/Progress/App';
 import './Home.css';
+import Alerta from '../../Componentes/Alerta/Alerta';
 
 function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(0);
+  const [mensagemAlerta, setMensagemAlerta] = useState('');
+  const [exibirAlerta, setExibirAlerta] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-      const url = 'https://script.google.com/macros/s/AKfycbxRE8ajIdxssCdXFmIqYKJnqCi4kEDSCd6ACNih3drnliPCxIYQcwVAsUlCCjwL4oBUpw/exec';
+      const url = 'https://script.google.com/macros/s/AKfycbx0HQFKL7SVoqnnt6StJXKFctMCvMpA-1Ef7iw__LHQp2nfshGdBfGWYSplVYLkbneOpw/exec';
       const action = 'ReadValorMensal';
       const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
@@ -24,8 +27,12 @@ function Home() {
         
         let valor = 0;
         for (let i = 0; i < jsonData.length; i++) {
-          let valorConverido = parseFloat(jsonData[i])
-            valor = valor + valorConverido;
+          if (jsonData[i] !== '') {
+            let valorConvertido = parseFloat(jsonData[i]);
+            if (!isNaN(valorConvertido)) {
+              valor += valorConvertido;
+            }
+          }
         }
         setData(valor);
       } catch (error) {
@@ -36,16 +43,60 @@ function Home() {
     fetchData();
   }, []);
 
+  const fecharAlerta = () => {
+    setExibirAlerta(false);
+    setMensagemAlerta('');
+    window.location.href = "/home";
+  };
+
+  const funcaoAtualizarLead = async () => {
+    const valor = document.getElementById("inputValorConverterLead").value;
+    const pagamento = document.getElementById("opcoesPagamentoConverterLead").value;
+    const id = document.getElementById("inputIdLead").value;
+
+    try {
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbwj1lEALrPJkJr2RlDiu5ytsayDSm2tTiC1hUfxjMTz6ezmyrKWeUNA7Uf3ptmXJdN7tg/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=Update&id=${id}&valor=${valor}&pagamento=${pagamento}`, {
+        method: 'GET',
+        redirect: 'follow'
+      });
+      const result = await response.text();
+      setMensagemAlerta(result);
+      setExibirAlerta(true);
+    } catch (error) {
+      setMensagemAlerta(result);
+      setExibirAlerta(true);
+    }
+  };
+
+  const funcaoExcluirLead = async () => {
+    const id = document.getElementById("inputIdLeadExclusao").value;
+
+    try {
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbwj1lEALrPJkJr2RlDiu5ytsayDSm2tTiC1hUfxjMTz6ezmyrKWeUNA7Uf3ptmXJdN7tg/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=Delete&id=${id}`, {
+        method: 'GET',
+        redirect: 'follow'
+      });
+      const result = await response.text();
+      setMensagemAlerta(result);
+      setExibirAlerta(true);
+    } catch (error) {
+      setMensagemAlerta(result);
+      setExibirAlerta(true);
+    }
+  };
+
+
 
   return (
     <div className='bodyHome'>
+     {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
       <div className="blocoTeste">
         <div className="blocosemanais">
           <BlocosSemanal />  
         </div>
         <div className="blocoValorMensal">
           <div className="subBlocoValorMensal">
-            <p>O valor das vendas mensais está no total de: R${data}</p>
+            <p>O valor das vendas mensais está no total de: R${data.toFixed(2)}</p>
           </div>
         </div>
         <div className="blocoUpdateLead">
@@ -54,14 +105,24 @@ function Home() {
             <div className="localInputs">
               <input type="text" id="inputValorConverterLead" placeholder='Valor' />
               <select id="opcoesPagamentoConverterLead">
-              <option value="">Forma de pagamento</option>
-              <option value="Dinheiro">Dinheiro</option>
-              <option value="Débito">Débito</option>
-              <option value="Crédito">Crédito</option>
-              <option value="Fiado">Fiado</option>
-            </select>
+                <option value="">Forma de pagamento</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Pix">Pix</option>
+                <option value="Débito">Débito</option>
+                <option value="Crédito">Crédito</option>
+                <option value="Fiado">Fiado</option>
+              </select>
               <input type="text" id="inputIdLead" placeholder='Qual o id da lead?' />
-              <button id='btnAtualizarLead'>Atualizar</button>
+              <button id='btnAtualizarLead' onClick={funcaoAtualizarLead}>Atualizar</button>
+            </div>
+          </div>
+        </div>
+        <div className="blocoDeleteLead">
+          <div className="subBlocoDeletLead">
+            <p>Excluir Lead</p>
+            <div className="blocoDosInput">
+              <input type="text" id="inputIdLeadExclusao" placeholder='Qual o id da lead?' />
+              <button id='btnExcluirLead' onClick={funcaoExcluirLead}>Excluir</button>
             </div>
           </div>
         </div>
@@ -69,6 +130,7 @@ function Home() {
           <Progress />
         </div>
       </div>
+      
       <Header />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../../Componentes/HeaderOriginalAtual/Header';
 import './Agendamento.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
@@ -6,33 +6,32 @@ import Alerta from '../../Componentes/Alerta/Alerta';
 function Agendamento() {
   const [exibirAlerta, setExibirAlerta] = useState(false);
   const [mensagemAlerta, setMensagemAlerta] = useState('');
-  const [dados, setDados] = useState([]);
+
+  const fecharAlerta = () => {
+    setExibirAlerta(false);
+    setMensagemAlerta('');
+  };
+
+  const reverseString = (str) => {
+    return str.split('-').reverse().join('-');
+  };
+
+  const coletarTamanhoId = async () => {
+    try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwIEDc99XK5Vq9F6UjoafPVszzURr1Erzbpxo652YS8Vz8pY3FXP1zHmSbYycVS_nwE-w/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=ColetarId", {
+            method: 'GET',
+            redirect: 'follow'
+        });
+        const result = await response.json(); // Parse response as JSON
+        return result.length; // Return the length of the array
+    } catch (error) {
+        console.log('error', error);
+        return null;
+    }
+}
   
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbxRE8ajIdxssCdXFmIqYKJnqCi4kEDSCd6ACNih3drnliPCxIYQcwVAsUlCCjwL4oBUpw/exec';
-  const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const action = 'ColetarId';
-      const apiUrlMontada = `${apiUrl}?action=${action}&token_acess=${token_acess}`;
-
-      try {
-        const response = await fetch(apiUrlMontada);
-        if (!response.ok) {
-          throw new Error(`Erro na solicitação: ${response.status}`);
-        }
-        const jsonData = await response.json();
-        setDados(jsonData);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-
-    fetchData();
-  }, [apiUrl]);
 
   const handleAgendar = async () => {
-    // Obter dados dos campos de entrada
     const nomecliente = document.getElementById('nomeInput').value;
     const data = document.getElementById('dataInput').value;
     const valor = document.getElementById('valorInput').value;
@@ -40,56 +39,35 @@ function Agendamento() {
     const horariofinal = document.getElementById('horaFinalInput').value;
     const descricao = document.getElementById('descricaoInput').value;
     const pagamento = document.getElementById('opcoesPagamento').value;
+    const id = await coletarTamanhoId();
 
-    // Verificar se todos os campos estão preenchidos
-    if (nomecliente === '' || data === '' || horariofinal === '' || horarioinicial === '' || descricao === '') {
+    if (!nomecliente || !data || !horarioinicial || !horariofinal || !descricao) {
       setMensagemAlerta('Alguns dados não foram preenchidos!');
       setExibirAlerta(true);
       return;
     }
 
-    // Construir parâmetros da requisição
-    const params = new URLSearchParams({
-      action: 'Create',
-      token_acess: token_acess,
-      nomecliente,
-      data,
-      valor,
-      horarioinicial,
-      horariofinal,
-      descricao,
-      pagamento,
-      id: dados.length + 1, // Gerar ID baseado no comprimento dos dados
-    });
+    if (id === null) {
+      setMensagemAlerta('Erro ao coletar ID.');
+      setExibirAlerta(true);
+      return;
+    }
+
+    const dataReversed = reverseString(data);
 
     try {
-      // Enviar requisição para a API usando método POST
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params.toString(),
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbx0HQFKL7SVoqnnt6StJXKFctMCvMpA-1Ef7iw__LHQp2nfshGdBfGWYSplVYLkbneOpw/exec?action=Create&token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=&status=Novo`, {
+        method: 'GET',
+        redirect: 'follow'
       });
-
-      // Verificar se a requisição foi bem-sucedida
-      if (response.ok) {
-        setMensagemAlerta('Cadastro feito com sucesso...');
-        setExibirAlerta(true);
-      } else {
-        setMensagemAlerta('Falha no cadastro. Tente novamente!');
-        setExibirAlerta(true);
-      }
+      const result = await response.text();
+      setMensagemAlerta('Agendamento realizado com sucesso!');
+      setExibirAlerta(true);
     } catch (error) {
-      console.error('Erro ao enviar requisição:', error);
-      setMensagemAlerta('Erro ao enviar requisição. Verifique sua conexão de internet e tente novamente.');
+      setMensagemAlerta('Erro ao realizar o agendamento.');
       setExibirAlerta(true);
     }
-  };
-
-  const fecharAlerta = () => {
-    setExibirAlerta(false);
-  };
+  }
 
   return (
     <div className='bodyAgendamento'>

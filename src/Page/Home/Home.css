@@ -1,69 +1,68 @@
-.bodyHome{
+.bodyHome {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: start;
     justify-content: center;
-}
-
-
-.blocoTeste{
+    z-index: 9;
+  }
+  
+  .blocoTeste {
     width: 100%;
     height: 100%;
     border-radius: 0.2rem;
-    margin-top: 20vh;
-}
-
-.blocoValorMensal{
+    margin-top: 15vh;
+  }
+  
+  .blocoValorMensal {
     width: 100%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1rem 0rem;
-}
-
-.subBlocoValorMensal{
+  }
+  
+  .subBlocoValorMensal {
     width: 90%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #00BF63;
+    background-color: #00bf63;
     border-radius: 0.1rem;
     margin-bottom: 2rem;
-}
-
-.subBlocoValorMensal p{
+  }
+  
+  .subBlocoValorMensal p {
     font-size: 1.5rem;
     color: white;
     margin-top: 1rem;
-}
-
-.blocosemanais{
+  }
+  
+  .blocosemanais {
     width: 100%;
     height: auto;
     text-align: center;
-}
-
-.blocoProgresso{
+  }
+  
+  .blocoProgresso {
     width: 100%;
     height: auto;
     padding: 0rem 4.2rem;
-
-}
-
-.blocoUpdateLead{
+  }
+  
+  .blocoUpdateLead {
     width: 100%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1rem 0rem;
-}
-
-.subBlocoUpdate{
+  }
+  
+  .subBlocoUpdate {
     width: 90%;
     height: auto;
     display: flex;
@@ -71,27 +70,27 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-color: #00BF63;
+    background-color: #00bf63;
     border-radius: 0.1rem;
     margin-bottom: 1rem;
-}
-
-.subBlocoUpdate p{
+  }
+  
+  .subBlocoUpdate p {
     font-size: 1.5rem;
     color: white;
     margin-top: 1rem;
-}
-
-.localInputs{
+  }
+  
+  .localInputs {
     width: 100%;
     height: auto;
     display: flex;
     text-align: center;
     justify-content: center;
     padding: 0rem 0rem 1rem;
-}
-
-#opcoesPagamentoConverterLead{
+  }
+  
+  #opcoesPagamentoConverterLead {
     width: 20%;
     height: 2.5rem;
     margin: 0rem 0.5rem;
@@ -99,9 +98,9 @@
     outline: none;
     border: 0;
     border-radius: 0.2rem;
-}
-
-#inputValorConverterLead{
+  }
+  
+  #inputValorConverterLead {
     width: 20%;
     height: 2.5rem;
     margin: 0rem 0.5rem;
@@ -109,10 +108,9 @@
     outline: none;
     border: 0;
     border-radius: 0.2rem;
-}
-
-
-#inputIdLead{
+  }
+  
+  #inputIdLead {
     width: 20%;
     height: 2.5rem;
     margin: 0rem 0.5rem;
@@ -120,9 +118,9 @@
     outline: none;
     border: 0;
     border-radius: 0.2rem;
-}
-
-#btnAtualizarLead{
+  }
+  
+  #btnAtualizarLead {
     width: 10%;
     height: 2.5rem;
     border: 0;
@@ -130,40 +128,114 @@
     color: white;
     background-color: black;
     transition: 0.3s ease-in-out;
-}
-
-#btnAtualizarLead:hover{
+  }
+  
+  #btnAtualizarLead:hover {
     color: white;
-    background-color: #E8751A;
-}
+    background-color: #e8751a;
+  }
 
-@media (min-width: 200px) and (max-width: 1024px) { 
-    .localInputs{
-        width: 100%;
-        height: auto;
-        display: flex;
-        text-align: center;
-        justify-content: center;
+  .blocoDeleteLead{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0rem;
+  }
+
+  .subBlocoDeletLead{
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #00bf63;
+    border-radius: 0.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .subBlocoDeletLead p{
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 1rem;
+  }
+
+  .blocoDosInput{
+    width: 100%;
+    height: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 0rem 0rem 1rem;
+  }
+
+  #inputIdLeadExclusao {
+    width: 20%;
+    height: 2.5rem;
+    margin: 0rem 0.5rem;
+    padding: 0.3rem;
+    outline: none;
+    border: 0;
+    border-radius: 0.2rem;
+  }
+  
+  #btnExcluirLead {
+    width: 10%;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 0.2rem;
+    color: white;
+    background-color: black;
+    transition: 0.3s ease-in-out;
+  }
+  
+  
+  @media (min-width: 200px) and (max-width: 1024px) { 
+    .localInputs {
+      width: 100%;
+      height: auto;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0rem 1rem 1rem;
+    }
+  
+    #opcoesPagamentoConverterLead {
+      width: 100%;
+      margin: 0rem 0rem 0.4rem;
+    }
+  
+    #inputValorConverterLead {
+      width: 100%;
+      margin: 0rem 0rem 0.4rem;
+    }
+  
+    #inputIdLead {
+      width: 100%;
+      margin: 0rem 0rem 0.4rem;
+    }
+  
+    #btnAtualizarLead {
+      width: 100%;
+    }
+
+    .blocoDosInput{
         flex-direction: column;
         padding: 0rem 1rem 1rem;
     }
 
-    #opcoesPagamentoConverterLead{
+    #inputIdLeadExclusao {
         width: 100%;
         margin: 0rem 0rem 0.4rem;
-    }
+      }
     
-    #inputValorConverterLead{
-        width: 100%;
-        margin: 0rem 0rem 0.4rem;
-    }
-    
-    #inputIdLead{
-        width: 100%;
-        margin: 0rem 0rem 0.4rem;
+    #btnExcluirLead {
+      width: 100%;
     }
 
-    #btnAtualizarLead{
-        width: 100%;
-    }
-}
+  }
+  

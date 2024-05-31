@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Blocos.css';
 
 const Blocos = () => {
-  const url = 'https://script.google.com/macros/s/AKfycbxRE8ajIdxssCdXFmIqYKJnqCi4kEDSCd6ACNih3drnliPCxIYQcwVAsUlCCjwL4oBUpw/exec';
+  const url = 'https://script.google.com/macros/s/AKfycbwj1lEALrPJkJr2RlDiu5ytsayDSm2tTiC1hUfxjMTz6ezmyrKWeUNA7Uf3ptmXJdN7tg/exec';
   const action = 'Read';
   const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
@@ -28,10 +28,12 @@ const Blocos = () => {
   }, [apiUrl]);
 
   const inverterDataIsoParaBr = (dataIso) => {
-    const parteData = dataIso.split('T')[0];
-    const [ano, mes, dia] = parteData.split('-');
-    const dataBr = `${dia}/${mes}/${ano}`;
-    return dataBr;
+    if(dataIso !== 0 && dataIso !== ''){
+      const parteData = dataIso.split('T')[0];
+      const [ano, mes, dia] = parteData.split('-');
+      const dataBr = `${dia}/${mes}/${ano}`;
+      return dataBr;
+      }
   };
 
   const groupDataByDate = (data) => {
@@ -52,7 +54,8 @@ const Blocos = () => {
         horariofinal: data[i].horariofinal,
         descricao: data[i].descricao,
         pagamento: data[i].pagamento,
-        id: data[i].id
+        id: data[i].id,
+        status: data[i].status
       });
     }
     return grupoPorData;
@@ -76,8 +79,11 @@ const Blocos = () => {
   const processarDados = (grupoPorData) => {
     const elementosRenderizados = [];
   
-    if (Object.keys(grupoPorData).length > 0) {
-      for (const dataBr in grupoPorData) {
+    for (const dataBr in grupoPorData) {
+      const todosValoresZero = grupoPorData[dataBr].every(objeto => Object.values(objeto).every(valor => valor === 0));
+      const nomeIgualZero = grupoPorData[dataBr].some(objeto => objeto.nome === 'iahual');
+      
+      if (!todosValoresZero && !nomeIgualZero) {
         elementosRenderizados.push(
           <div className="divPrincipal" key={dataBr}>
             <div className="nomeDataDia">{dataBr}</div>
@@ -101,7 +107,9 @@ const Blocos = () => {
           </div>
         );
       }
-    } else if(Object.keys(grupoPorData).length == 0) {
+    }
+    
+    if (elementosRenderizados.length === 0) {
       elementosRenderizados.push(
         <div className='notData'><h1>Não possui clientes agendados</h1></div>
       );

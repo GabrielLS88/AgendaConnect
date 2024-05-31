@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './BlocoSemanal.css';
 
 const Blocos = () => {
-  const url = 'https://script.google.com/macros/s/AKfycbxRE8ajIdxssCdXFmIqYKJnqCi4kEDSCd6ACNih3drnliPCxIYQcwVAsUlCCjwL4oBUpw/exec';
+  const url = 'https://script.google.com/macros/s/AKfycbwj1lEALrPJkJr2RlDiu5ytsayDSm2tTiC1hUfxjMTz6ezmyrKWeUNA7Uf3ptmXJdN7tg/exec';
   const action = 'Read';
   const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
@@ -28,33 +28,38 @@ const Blocos = () => {
   }, [apiUrl]);
 
   const inverterDataIsoParaBr = (dataIso) => {
-    const parteData = dataIso.split('T')[0];
-    const [ano, mes, dia] = parteData.split('-');
-    const dataBr = `${dia}/${mes}/${ano}`;
-    return dataBr;
+    if (dataIso && dataIso !== '') {
+      const [ano, mes, dia] = dataIso.split('T')[0].split('-');
+      return `${dia}/${mes}/${ano}`;
+    }
+    return '';
   };
 
   const groupDataByDate = (data) => {
     const grupoPorData = {};
 
-    for (let i = 0; i < data.length; i++) {
-      const dataBr = inverterDataIsoParaBr(data[i].data);
+    data.forEach((item) => {
+      const dataBr = inverterDataIsoParaBr(item.data);
 
       if (!grupoPorData[dataBr]) {
         grupoPorData[dataBr] = [];
       }
 
-      grupoPorData[dataBr].push({
-        nome: data[i].nomecliente,
-        data: dataBr,
-        valor: data[i].valor,
-        horarioinicial: data[i].horarioinicial,
-        horariofinal: data[i].horariofinal,
-        descricao: data[i].descricao,
-        pagamento: data[i].pagamento,
-        id: data[i].id
-      });
-    }
+      if (item.status !== "concluido") {
+        grupoPorData[dataBr].push({
+          nome: item.nomecliente,
+          data: dataBr,
+          valor: item.valor,
+          horarioinicial: item.horarioinicial,
+          horariofinal: item.horariofinal,
+          descricao: item.descricao,
+          pagamento: item.pagamento,
+          id: item.id,
+          status: item.status
+        });
+      }
+    });
+
     return grupoPorData;
   };
 
@@ -65,8 +70,6 @@ const Blocos = () => {
     const ano = hoje.getFullYear();
     return `${ano}-${mes}-${dia}`;
   };
-
-  const diasDasDatas = [0, 1, 2, 3, 4, 5, 6];
 
   const ordenarPorData = (grupoPorData) => {
     const datasOrdenadas = Object.keys(grupoPorData).sort((a, b) => {
@@ -84,48 +87,58 @@ const Blocos = () => {
 
   const processarDados = (grupoPorData, dataAtual, diasDasDatas) => {
     const elementosRenderizados = [];
-      for (let i = 0; i < diasDasDatas.length; i++) {
-        const data = new Date(dataAtual);
-        data.setDate(data.getDate() + diasDasDatas[i]);
-        const dataBr = inverterDataIsoParaBr(data.toISOString());
+    console.log(grupoPorData);
 
-        if (grupoPorData[dataBr]) {
-          elementosRenderizados.push(
-            <div className="divPrincipal" key={dataBr}>
-              <div className="nomeDataDia">{dataBr}</div>
-              <div className="containerBloco">
-                {grupoPorData[dataBr].map((item, index) => (
-                  <div key={index} className="divBloco">
-                    <div className='espacoDosBlocos'>
-                      <div className="ladoDeCima">
-                        <div id="nomeCliente" className="blocoNomeSemanal">{item.id} - {item.nome}</div>
-                        <div id="horarioInicial" className="blocoHoraInicialSemanal"><div id='escritahora'>Horário das</div>{item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''}<div id='escritahora'> ás </div>{item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}</div>
-                        <div className="valorDescricaoSemanal"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
+    for (let i = 0; i < diasDasDatas.length; i++) {
+      const data = new Date(dataAtual);
+      data.setDate(data.getDate() + diasDasDatas[i]);
+      const dataBr = inverterDataIsoParaBr(data.toISOString());
+
+      if (grupoPorData[dataBr] && grupoPorData[dataBr].length > 0) {
+        elementosRenderizados.push(
+          <div className="divPrincipal" key={dataBr}>
+            <div className="nomeDataDia">{dataBr}</div>
+            <div className="containerBloco">
+              {grupoPorData[dataBr].map((item, index) => (
+                <div key={index} className="divBloco">
+                  <div className='espacoDosBlocos'>
+                    <div className="ladoDeCima">
+                      <div id="nomeCliente" className="blocoNomeSemanal">{item.id} - {item.nome}</div>
+                      <div id="horarioInicial" className="blocoHoraInicialSemanal">
+                        <div id='escritahora'>Horário das</div>
+                        {item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''} 
+                        <div id='escritahora'> ás </div>
+                        {item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}
                       </div>
+                      <div className="valorDescricaoSemanal"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          );
-        }
-      }
-      if(elementosRenderizados.length == 0) {
-        elementosRenderizados.push(
-          <div className='notData'><h1>Não possui clientes agendados</h1></div>
+          </div>
         );
+      }
     }
+
+    if (elementosRenderizados.length === 0) {
+      elementosRenderizados.push(
+        <div className='notData' key='noData'><h1>Não possui clientes agendados</h1></div>
+      );
+    }
+    console.log(elementosRenderizados);
     return elementosRenderizados;
   };
 
+  const grupoPorData = groupDataByDate(data);
+  const grupoOrdenado = ordenarPorData(grupoPorData);
+  const dataAtual = obterDataAtual();
+
   return (
     <div>
-      {data.length >= 0 && (
-        <div>
-          {processarDados(ordenarPorData(groupDataByDate(data)), obterDataAtual(), diasDasDatas)}
-        </div>
-      )}
+      {data.length > 0 ? processarDados(grupoOrdenado, dataAtual, [0, 1, 2, 3, 4, 5, 6]) : <div className='escritaCarregando'>Carregando...</div>}
     </div>
-  );}
+  );
+}
 
 export default Blocos;
