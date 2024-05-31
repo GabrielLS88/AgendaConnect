@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './BlocoSemanal.css';
 
 const Blocos = () => {
-  const url = 'https://script.google.com/macros/s/AKfycbzaikHQz7zPoLHMf8FP_XqgC5yzKlbmaameaHED2Gt0QiWq71_M-FkVdl1bc4DyksfyMg/exec';
+  const url = 'https://script.google.com/macros/s/AKfycbxRE8ajIdxssCdXFmIqYKJnqCi4kEDSCd6ACNih3drnliPCxIYQcwVAsUlCCjwL4oBUpw/exec';
   const action = 'Read';
   const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
@@ -52,6 +52,7 @@ const Blocos = () => {
         horariofinal: data[i].horariofinal,
         descricao: data[i].descricao,
         pagamento: data[i].pagamento,
+        id: data[i].id
       });
     }
     return grupoPorData;
@@ -97,13 +98,9 @@ const Blocos = () => {
                   <div key={index} className="divBloco">
                     <div className='espacoDosBlocos'>
                       <div className="ladoDeCima">
-                        <div id="nomeCliente" className="blocoNome">{item.nome}</div>
-                        <div id="horarioInicial" className="blocoHoraInicial"><div id='escritahora'>Horário das</div>{item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''}<div id='escritahora'> ás </div>{item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}</div>
-                        <div className="valorServico"><div id='escritaDiv'>Valor:</div>R${item.valor}</div>
-                      </div>
-                      <div id="ladoDeBaixo">
-                        <div className="descricao"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
-                        <div className="formaDePagamento"><div id='escritaDiv'>Forma de pagamento:</div>{item.pagamento}</div>
+                        <div id="nomeCliente" className="blocoNomeSemanal">{item.id} - {item.nome}</div>
+                        <div id="horarioInicial" className="blocoHoraInicialSemanal"><div id='escritahora'>Horário das</div>{item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''}<div id='escritahora'> ás </div>{item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}</div>
+                        <div className="valorDescricaoSemanal"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
                       </div>
                     </div>
                   </div>

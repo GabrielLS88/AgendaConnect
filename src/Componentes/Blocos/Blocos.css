@@ -184,13 +184,6 @@
         text-align: start;
         padding-left: 20px;
     }
-    .blocoStatus{
-        width: 3%;
-    }
-    .status{
-        width: 15px;
-        height: 15px;
-    }
     .divBloco {
       width: 95%;
       margin: 15px 0px;
@@ -199,6 +192,8 @@
         font-size: 1rem;
     }
     .blocoHoraInicial{
+        padding: 0.2rem;
+        width: 40%;
         font-size: 1rem;
         flex-direction: column;
     }
@@ -211,6 +206,7 @@
         flex-direction: column;
     }
     .valorServico{
+        width: 40%;
         font-size: 1rem;
         flex-direction: column;
     }

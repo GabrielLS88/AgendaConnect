@@ -9,7 +9,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const url = 'https://script.google.com/macros/s/AKfycbzAYHD26zk69fnnfLq0tuV3259-6fcZ_vlB8ET0PVPr6Z7d3vzFTRyNg16C89CNVGblUQ/exec';
+      const url = 'https://script.google.com/macros/s/AKfycbxRE8ajIdxssCdXFmIqYKJnqCi4kEDSCd6ACNih3drnliPCxIYQcwVAsUlCCjwL4oBUpw/exec';
       const action = 'ReadValorMensal';
       const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
@@ -46,6 +46,23 @@ function Home() {
         <div className="blocoValorMensal">
           <div className="subBlocoValorMensal">
             <p>O valor das vendas mensais está no total de: R${data}</p>
+          </div>
+        </div>
+        <div className="blocoUpdateLead">
+          <div className="subBlocoUpdate">
+            <p>Atualizar valores da Lead</p>
+            <div className="localInputs">
+              <input type="text" id="inputValorConverterLead" placeholder='Valor' />
+              <select id="opcoesPagamentoConverterLead">
+              <option value="">Forma de pagamento</option>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Débito">Débito</option>
+              <option value="Crédito">Crédito</option>
+              <option value="Fiado">Fiado</option>
+            </select>
+              <input type="text" id="inputIdLead" placeholder='Qual o id da lead?' />
+              <button id='btnAtualizarLead'>Atualizar</button>
+            </div>
           </div>
         </div>
         <div className="blocoProgresso">

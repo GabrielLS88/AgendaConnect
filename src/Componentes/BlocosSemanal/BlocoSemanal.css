@@ -68,8 +68,8 @@
     margin-top: 1rem;
 }
 
-.blocoNome{
-    width: 30%;
+.blocoNomeSemanal{
+    width: 20%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -83,8 +83,8 @@
     text-align: center;
 }
 
-.blocoHoraInicial{
-    width: 50%;
+.blocoHoraInicialSemanal{
+    width: 30%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -114,8 +114,8 @@
     text-align: center;
 }
 
-.valorServico{
-    width: 20%;
+.valorDescricaoSemanal{
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -172,33 +172,24 @@
         text-align: start;
         padding-left: 20px;
     }
-    .blocoStatus{
-        width: 3%;
-    }
-    .status{
-        width: 15px;
-        height: 15px;
-    }
+    
     .divBloco {
       width: 95%;
       margin: 15px 0px;
     }
-    .blocoNome{
+    .blocoNomeSemanal{
+        width: 30%;
         font-size: 1rem;
     }
-    .blocoHoraInicial{
-        font-size: 1rem;
-        flex-direction: column;
-    }
-    .descricao{
+    .blocoHoraInicialSemanal{
+        width: 35%;
         font-size: 1rem;
         flex-direction: column;
+        padding: 0.3rem 0rem;
     }
-    .formaDePagamento{
-        font-size: 1rem;
-        flex-direction: column;
-    }
-    .valorServico{
+    
+    .valorDescricaoSemanal{
+        width: 35%;
         font-size: 1rem;
         flex-direction: column;
     }
