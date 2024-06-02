@@ -55,7 +55,7 @@ function Home() {
     const id = document.getElementById("inputIdLead").value;
 
     try {
-      const response = await fetch(`https://script.google.com/macros/s/AKfycbwj1lEALrPJkJr2RlDiu5ytsayDSm2tTiC1hUfxjMTz6ezmyrKWeUNA7Uf3ptmXJdN7tg/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=Update&id=${id}&valor=${valor}&pagamento=${pagamento}`, {
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbwl4nmv4E4AqS9Awqu0cnJINHqKHEieOHc0oBH20R1HOFxU_KCXCwpGu4MtKBxkw7A4Hw/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=Update&id=${id}&valor=${valor}&pagamento=${pagamento}`, {
         method: 'GET',
         redirect: 'follow'
       });
@@ -72,7 +72,7 @@ function Home() {
     const id = document.getElementById("inputIdLeadExclusao").value;
 
     try {
-      const response = await fetch(`https://script.google.com/macros/s/AKfycbwj1lEALrPJkJr2RlDiu5ytsayDSm2tTiC1hUfxjMTz6ezmyrKWeUNA7Uf3ptmXJdN7tg/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=Delete&id=${id}`, {
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbzJcfjNwGFVrMnIAdIH41Z9RwPpu2zwJ_KiymPm0KmE_hZ0DKU9VfXYi9hLBWK0gbi8Tw/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=Delete&id=${id}`, {
         method: 'GET',
         redirect: 'follow'
       });
@@ -126,9 +126,9 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="blocoProgresso">
+        {/* <div className="blocoProgresso">
           <Progress />
-        </div>
+        </div> */}
       </div>
       
       <Header />

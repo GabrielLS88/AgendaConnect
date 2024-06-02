@@ -56,7 +56,7 @@ function Agendamento() {
     const dataReversed = reverseString(data);
 
     try {
-      const response = await fetch(`https://script.google.com/macros/s/AKfycbx0HQFKL7SVoqnnt6StJXKFctMCvMpA-1Ef7iw__LHQp2nfshGdBfGWYSplVYLkbneOpw/exec?action=Create&token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=&status=Novo`, {
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbwl4nmv4E4AqS9Awqu0cnJINHqKHEieOHc0oBH20R1HOFxU_KCXCwpGu4MtKBxkw7A4Hw/exec&token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=&status=Novo`, {
         method: 'GET',
         redirect: 'follow'
       });
