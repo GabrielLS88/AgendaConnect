@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../../Componentes/HeaderOriginalAtual/Header';
 import './Agendamento.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
@@ -16,20 +16,19 @@ function Agendamento() {
     return str.split('-').reverse().join('-');
   };
 
-  const coletarTamanhoId = async () => {
+  const coletarTamanhoId = async (urlParaApi, token) => {
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwIEDc99XK5Vq9F6UjoafPVszzURr1Erzbpxo652YS8Vz8pY3FXP1zHmSbYycVS_nwE-w/exec?token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&action=ColetarId", {
-            method: 'GET',
-            redirect: 'follow'
-        });
-        const result = await response.json(); // Parse response as JSON
-        return result.length; // Return the length of the array
+      const response = await fetch(`${urlParaApi}?action=ColetarId&token_acess=${token}`, {
+        method: 'GET',
+        redirect: 'follow'
+      });
+      const result = await response.json();
+      return result.length;
     } catch (error) {
-        console.log('error', error);
-        return null;
+      console.log('error', error);
+      return null;
     }
-}
-  
+  };
 
   const handleAgendar = async () => {
     const nomecliente = document.getElementById('nomeInput').value;
@@ -39,16 +38,12 @@ function Agendamento() {
     const horariofinal = document.getElementById('horaFinalInput').value;
     const descricao = document.getElementById('descricaoInput').value;
     const pagamento = document.getElementById('opcoesPagamento').value;
-    const id = await coletarTamanhoId();
+    const urlParaApi = localStorage.getItem("urlPlanilha");
+    const token = localStorage.getItem("tokenParaReq");
+    const id = await coletarTamanhoId(urlParaApi, token);
 
-    if (!nomecliente || !data || !horarioinicial || !horariofinal || !descricao) {
+    if (!nomecliente || !data || !horarioinicial || !horariofinal) {
       setMensagemAlerta('Alguns dados não foram preenchidos!');
-      setExibirAlerta(true);
-      return;
-    }
-
-    if (id === null) {
-      setMensagemAlerta('Erro ao coletar ID.');
       setExibirAlerta(true);
       return;
     }
@@ -56,18 +51,19 @@ function Agendamento() {
     const dataReversed = reverseString(data);
 
     try {
-      const response = await fetch(`https://script.google.com/macros/s/AKfycbwl4nmv4E4AqS9Awqu0cnJINHqKHEieOHc0oBH20R1HOFxU_KCXCwpGu4MtKBxkw7A4Hw/exec&token_acess=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=&status=Novo`, {
+      const response = await fetch(`${urlParaApi}?action=Create&token_acess=${token}&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=${id}`, {
         method: 'GET',
         redirect: 'follow'
       });
       const result = await response.text();
+      console.log(result);
       setMensagemAlerta('Agendamento realizado com sucesso!');
       setExibirAlerta(true);
     } catch (error) {
-      setMensagemAlerta('Erro ao realizar o agendamento.');
+      setMensagemAlerta(`Erro ao realizar o agendamento: ${error.message}`);
       setExibirAlerta(true);
     }
-  }
+  };
 
   return (
     <div className='bodyAgendamento'>

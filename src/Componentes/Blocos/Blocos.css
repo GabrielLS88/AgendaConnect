@@ -12,7 +12,7 @@
     text-align: start;
     padding-left: 5rem;
     font-size: 1.5rem;
-    color: #E8751A;
+    color: white;
     font-weight: bold;
 }
 
@@ -78,7 +78,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #30950be7;
+    color: #01C380;
     font-size: 1rem;;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
     padding: 0.5rem;
@@ -94,7 +94,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #30950be7;
+    color: #01C380;
     font-size: 1rem;
     text-align: center;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
@@ -111,7 +111,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #30950be7;
+    color: #01C380;
     font-size: 1rem;
     text-align: center;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
@@ -128,7 +128,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #30950be7;
+    color: #01C380;
     font-size: 1rem;
     text-align: center;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
@@ -145,7 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #30950be7;
+    color: #01C380;
     font-size: 1rem;
     text-align: center;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
@@ -158,7 +158,7 @@
 
 /* DIV criada para deixar as frases em cor BLACK */
 #escritaDiv{
-    color: rgba(0, 0, 0, 0.692);
+    color: white;
     font-weight: normal;
     margin-right: 0.2rem;
 }
@@ -169,7 +169,7 @@
 }
 
 #escritahora{
-    color: black;
+    color: white;
     font-weight: normal;
     margin: 0rem 0.2rem;
 }
@@ -194,10 +194,12 @@
 .subBlocoSelecaoMes{
     width: 90%;
     height: auto;
-    background-color: #00BF63;
+    background-color: #01C380;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 1rem;
+    margin-top: 1rem;
 }
 
 #btnPesquisarHistorico{
@@ -210,14 +212,11 @@
     transition: 0.3s ease-in-out;
 }
 
-#btnPesquisarHistorico:hover{
-    background-color: #E8751A;
-}
-
 .espacoLoading{
     width: 100%;
     height: auto;
     padding: 1rem 0rem 0rem;
+    background-color: #132D46;
 }
   
 

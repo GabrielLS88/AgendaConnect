@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './BlocoSemanal.css';
 
 const Blocos = () => {
-  const url = 'https://script.google.com/macros/s/AKfycbwl4nmv4E4AqS9Awqu0cnJINHqKHEieOHc0oBH20R1HOFxU_KCXCwpGu4MtKBxkw7A4Hw/exec';
+  const token = localStorage.getItem("tokenParaReq");
+  const urlParaApi = localStorage.getItem("urlPlanilha");
+  const url = urlParaApi;
   const action = 'Read';
-  const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+  const token_acess = token;
 
   const apiUrl = `${url}?action=${action}&token_acess=${token_acess}`;
 

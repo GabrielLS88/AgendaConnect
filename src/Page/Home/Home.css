@@ -5,6 +5,8 @@
     align-items: start;
     justify-content: center;
     z-index: 9;
+    background-color: #132D46;
+    color: white;
   }
   
   .blocoTeste {
@@ -12,6 +14,7 @@
     height: 100%;
     border-radius: 0.2rem;
     margin-top: 15vh;
+    background-color: #132D46;
   }
   
   .blocoValorMensal {
@@ -24,15 +27,15 @@
   }
   
   .subBlocoValorMensal {
-    width: 90%;
+    width: 60%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #00bf63;
-    border-radius: 0.1rem;
-    margin-bottom: 2rem;
+    background-color: #01C380;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
   }
   
   .subBlocoValorMensal p {
@@ -63,15 +66,15 @@
   }
   
   .subBlocoUpdate {
-    width: 90%;
+    width: 60%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-color: #00bf63;
-    border-radius: 0.1rem;
+    background-color: #01C380;
+    border-radius: 1rem;
     margin-bottom: 1rem;
   }
   
@@ -91,17 +94,19 @@
   }
   
   #opcoesPagamentoConverterLead {
-    width: 20%;
+    width: 30%;
     height: 2.5rem;
     margin: 0rem 0.5rem;
     padding: 0.3rem;
     outline: none;
     border: 0;
     border-radius: 0.2rem;
+    text-align: center;
   }
   
   #inputValorConverterLead {
-    width: 20%;
+    text-align: center;
+    width: 10%;
     height: 2.5rem;
     margin: 0rem 0.5rem;
     padding: 0.3rem;
@@ -118,6 +123,7 @@
     outline: none;
     border: 0;
     border-radius: 0.2rem;
+    text-align: center;
   }
   
   #btnAtualizarLead {
@@ -130,10 +136,10 @@
     transition: 0.3s ease-in-out;
   }
   
-  #btnAtualizarLead:hover {
+  /* #btnAtualizarLead:hover {
     color: white;
     background-color: #e8751a;
-  }
+  } */
 
   .blocoDeleteLead{
     width: 100%;
@@ -142,18 +148,19 @@
     align-items: center;
     justify-content: center;
     margin: 1rem 0rem;
+    background-color: #132D46;
   }
 
   .subBlocoDeletLead{
-    width: 90%;
+    width: 60%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-color: #00bf63;
-    border-radius: 0.1rem;
+    background-color: #01C380;
+    border-radius: 1rem;
     margin-bottom: 1rem;
   }
 
@@ -173,17 +180,18 @@
   }
 
   #inputIdLeadExclusao {
-    width: 20%;
+    width: 50%;
     height: 2.5rem;
     margin: 0rem 0.5rem;
     padding: 0.3rem;
     outline: none;
     border: 0;
     border-radius: 0.2rem;
+    text-align: center;
   }
   
   #btnExcluirLead {
-    width: 10%;
+    width: 20%;
     height: 2.5rem;
     border: 0;
     border-radius: 0.2rem;

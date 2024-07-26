@@ -6,17 +6,18 @@
     align-items: start;
     justify-content: center;
     z-index: 9;
+    background-color: #132D46;
 }
 
 .corpo{
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: white;
-    margin-top: 20vh;
+    background-color: #132D46;
+    margin-top: 4%;
 }
 .body{
     width: 90%;
@@ -24,8 +25,7 @@
     border: 0;
     border-radius: 0.2rem;
     padding: 20px;
-
-    border: 0.1rem solid rgba(0, 0, 0, 0.251);
+    border: 0.1rem solid #01C380;
 }
 .namesInput{
     width: 100%;
@@ -48,7 +48,6 @@
     font-size: 15px;
 }
 
-/* nomes input da data */
 #appt{
     width: auto;
     height: 2.5rem;
@@ -72,13 +71,13 @@
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(20deg);
+    filter: invert(1) brightness(100%) sepia(100%) saturate(1000000%) hue-rotate(70deg);
     font-size: 20px;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(20deg);
+    filter: invert(1) brightness(100%) sepia(100%) saturate(1000000%) hue-rotate(70deg);
     font-size: 20px;
 }
 .divNomeFicha{
@@ -91,8 +90,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 .nomeFicha{
     font-weight: bold;
-    font-size: 1.2rem;
-    color: #E8751A;
+    font-size: 1.5rem;
+    color: #01C380;
     margin-bottom: 0.5rem;
 }
 
@@ -127,7 +126,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 #btnAgendar{
-    background-color: #E8751A;
+    background-color: #01C380;
 }
 
 .divInputHoras{

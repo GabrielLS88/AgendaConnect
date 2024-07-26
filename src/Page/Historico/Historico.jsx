@@ -1,6 +1,6 @@
 import Header from '../../Componentes/HeaderOriginalAtual/Header';
 import Blocos from '../../Componentes/Blocos/Blocos'
-import Progress from '../../Componentes/Progress/App';
+//import Progress from '../../Componentes/Progress/App';
 import './Historico.css'
 
 function Horario() {

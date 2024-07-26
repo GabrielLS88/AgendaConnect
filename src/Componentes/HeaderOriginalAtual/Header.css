@@ -9,7 +9,7 @@
 .menuParteDeCima{
     width: 100%;
     height: 100%;
-    background-color: #00BF63;
+    background-color: #01C380;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,9 +27,9 @@
 
 
 #marca{
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: white;
+  color:white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,7 +99,7 @@
 .blocoMenu {
     width: 15%;
     height: 100vh;
-    background-color: #028144;
+    background-color: #039663;
     display: flex;
     align-items: center;
     justify-content: start;

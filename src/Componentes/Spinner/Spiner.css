@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f8f9fa;
+    background-color: #132D46;
   }
   
   .blocoSpiner {
@@ -18,7 +18,7 @@
   
   #escritaLoading {
     font-size: 1.5rem;
-    color: black;
+    color: white;
     display: flex;
     justify-content: center;
   }

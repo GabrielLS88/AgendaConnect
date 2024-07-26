@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './SingUp.css'
 import Alerta from '../../Componentes/Alerta/Alerta';
-import Apresentacao from '../../Componentes/Apresentacao/Apresentacao';
-import Logo from "../../assets/Sistema.jpg"
+//import Apresentacao from '../../Componentes/Apresentacao/Apresentacao';
+//import Logo from "../../assets/Sistema.jpg"
 function SingUp() {
   const [passwordVisivel, setPasswordVisivel] = useState(false);
   const [exibirAlerta, setExibirAlerta] = useState(false);
@@ -39,7 +39,7 @@ function SingUp() {
         <input id='phoneUser' className='inputSingCadastro' type="text" placeholder='Telefone' />
         <input id='emailUser' className='inputSingCadastro' type="text" placeholder='E-mail' />
         <div className="divInputPasswordCadastro">
-          <input id='passwordUser' className='inputSingPassowordCadastro'  type={passwordVisivel ? "text" : "password"} placeholder='Senha' /><i id='btnVizualizarPasswordCadastro' class="bi bi-eye-fill" onClick={converteParaTexto}></i>
+          <input id='passwordUser' className='inputSingPassowordCadastro'  type={passwordVisivel ? "text" : "password"} placeholder='Senha' /><i id='btnVizualizarPasswordCadastro' className="bi bi-eye-fill" onClick={converteParaTexto}></i>
         </div>
         <button onClick={ClickCadastrar} className='btnCadastro'>Cadastrar</button>
         <div className="blocoLinksCadastro">

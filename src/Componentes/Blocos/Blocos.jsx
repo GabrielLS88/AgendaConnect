@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Blocos.css';
 import Spinner from '../Spinner/Spiner'; // Corrigi o caminho para Spinner
 
 const Blocos = () => {
-  const url = 'https://script.google.com/macros/s/AKfycbwl4nmv4E4AqS9Awqu0cnJINHqKHEieOHc0oBH20R1HOFxU_KCXCwpGu4MtKBxkw7A4Hw/exec';
+  const token = localStorage.getItem("tokenParaReq");
+  const urlParaApi = localStorage.getItem("urlPlanilha");
+  const url = urlParaApi;
   const action = 'ReadPassandoMes';
-  const token_acess = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+  const token_acess = token;
 
   const [data, setData] = useState([]);
   const [mes, setMes] = useState('janeiro');
-  const [loading, setLoading] = useState(false); // Estado para controlar o spinner
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async (mes) => {
     try {
-      setLoading(true); // Mostrar spinner
+      setLoading(true);
       const apiUrl = `${url}?action=${action}&token_acess=${token_acess}&mes=${mes}`;
       const response = await fetch(apiUrl);
       if (!response.ok) {
