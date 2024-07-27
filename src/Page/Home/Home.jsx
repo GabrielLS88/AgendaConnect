@@ -97,15 +97,7 @@ function Home() {
     <div className='bodyHome'>
      {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
       <div className="blocoTeste">
-        <div className="blocosemanais">
-          <BlocosSemanal />  
-        </div>
-        <div className="blocoValorMensal">
-          <div className="subBlocoValorMensal">
-            <p>O valor das vendas mensais está no total de: R${data.toFixed(2)}</p>
-          </div>
-        </div>
-        <div className="blocoUpdateLead">
+      <div className="blocoUpdateLead">
           <div className="subBlocoUpdate">
             <p>Atualizar valores do agendamento</p>
             <div className="localInputs">
@@ -132,6 +124,14 @@ function Home() {
             </div>
           </div>
         </div>
+        <div className="blocosemanais">
+          <BlocosSemanal />  
+        </div>
+        {/* <div className="blocoValorMensal">
+          <div className="subBlocoValorMensal">
+            <p>O valor das vendas mensais está no total de: R${data.toFixed(2)}</p>
+          </div>
+        </div> */}
         {/* <div className="blocoProgresso">
           <Progress />
         </div> */}

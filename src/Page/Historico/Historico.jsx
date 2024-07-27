@@ -11,7 +11,6 @@ function Horario() {
           <div className="divBory">
              <Blocos></Blocos>
            </div>
-           
        </div>
     </div>
   )

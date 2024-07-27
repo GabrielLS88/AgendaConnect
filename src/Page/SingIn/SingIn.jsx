@@ -6,6 +6,7 @@ function SingIn() {
   const [passwordVisivel, setPasswordVisivel] = useState(false);
   const [exibirAlerta, setExibirAlerta] = useState(false);
   const [mensagemAlerta, setMensagemAlerta] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const converteParaTexto = () => {
     setPasswordVisivel(!passwordVisivel);
@@ -41,7 +42,9 @@ function SingIn() {
       setMensagemAlerta('Por favor, preencha todos os campos antes de prosseguir o login.');
       setExibirAlerta(true);
     } else {
+      setLoading(true);
       consultarUsuario(nameUser, passwordUser).then(result => {
+        setLoading(false);
         if(result.nomedeacesso != undefined){
             localStorage.setItem("token", "Autorizado");
             localStorage.setItem("nameUser",result.nomedeacesso);
@@ -62,13 +65,17 @@ function SingIn() {
       {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
       <div className="ladoLogin">
         <div className="boxLogin">
-          <h2 id='tituloBoxLogin'>LOGIN</h2>
-          <input id='nameUser' className='inputSingLogin' type="text" placeholder='Usuário' />
+          <h2 id='tituloBoxLogin'>Login</h2>
+          <input id='nameUser' className='inputSingLogin' type="text" disabled={loading}  placeholder='Usuário' />
           <div className="divInputPasswordLogin">
-            <input id='passwordUser' className='inputSingPasswordLogin' type={passwordVisivel ? "text" : "password"} placeholder='Senha' />
-            <i id='btnVizualizarPasswordLogin' className="bi bi-eye-fill" onClick={converteParaTexto}></i>
+            <input id='passwordUser' className='inputSingPasswordLogin' style={{ pointerEvents: loading ? 'none' : 'auto' }} type={passwordVisivel ? "text" : "password"} placeholder='Senha' />
+            <i 
+              id='btnVizualizarPasswordLogin' 
+              className={`bi ${passwordVisivel ? "bi-eye-fill" : "bi-eye-slash-fill"}`} 
+              onClick={converteParaTexto}
+            ></i>
           </div>
-          <button className='btnEntrarLogin' onClick={ClickEntrar}>Entrar</button>
+          <button className='btnEntrarLogin' onClick={ClickEntrar} style={{cursor: loading ? "not-allowed" : "pointer"}}>Entrar</button>
           <div className="blocoLinksLogin">
             <a id='linksBoxLogin1' href="#">Esqueceu a senha?</a>
             <a id='linksBoxLogin2' href="/signup">Novo Cliente?</a>

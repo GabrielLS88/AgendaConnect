@@ -5,7 +5,7 @@
     align-items: start;
     justify-content: center;
     z-index: 9;
-    background-color: #132D46;
+    background-color: #3E3A3B;
     color: white;
   }
   
@@ -14,10 +14,10 @@
     height: 100%;
     border-radius: 0.2rem;
     margin-top: 15vh;
-    background-color: #132D46;
+    background-color: #3E3A3B;
   }
   
-  .blocoValorMensal {
+  /* .blocoValorMensal {
     width: 100%;
     height: auto;
     display: flex;
@@ -27,7 +27,7 @@
   }
   
   .subBlocoValorMensal {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@
     background-color: #01C380;
     border-radius: 1rem;
     margin-bottom: 1rem;
-  }
+  } */
   
   .subBlocoValorMensal p {
     font-size: 1.5rem;
@@ -48,6 +48,7 @@
     width: 100%;
     height: auto;
     text-align: center;
+    background-color: #3E3A3B;
   }
   
   .blocoProgresso {
@@ -66,14 +67,14 @@
   }
   
   .subBlocoUpdate {
-    width: 60%;
+    width: 90%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-color: #01C380;
+    background-color: transparent;
     border-radius: 1rem;
     margin-bottom: 1rem;
   }
@@ -136,10 +137,6 @@
     transition: 0.3s ease-in-out;
   }
   
-  /* #btnAtualizarLead:hover {
-    color: white;
-    background-color: #e8751a;
-  } */
 
   .blocoDeleteLead{
     width: 100%;
@@ -148,18 +145,17 @@
     align-items: center;
     justify-content: center;
     margin: 1rem 0rem;
-    background-color: #132D46;
+    background-color: #3E3A3B;
   }
 
   .subBlocoDeletLead{
-    width: 60%;
+    width: 90%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-color: #01C380;
     border-radius: 1rem;
     margin-bottom: 1rem;
   }

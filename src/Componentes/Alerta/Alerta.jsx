@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './Alerta.css';
 
 function Alerta({mensagem, fecharAlerta }) {

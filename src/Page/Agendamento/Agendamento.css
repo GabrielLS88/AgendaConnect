@@ -1,31 +1,30 @@
 
 .bodyAgendamento{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: start;
     justify-content: center;
     z-index: 9;
-    background-color: #132D46;
+    background-color: #3E3A3B;
 }
 
 .corpo{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #132D46;
-    margin-top: 4%;
+    background-color: #3E3A3B;
 }
 .body{
     width: 90%;
     height: auto;
     border: 0;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     padding: 20px;
-    border: 0.1rem solid #01C380;
+    margin-top: 4rem;
 }
 .namesInput{
     width: 100%;
@@ -40,24 +39,26 @@
     width: 100%;
     height: 2.5rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     padding: 10px;
     margin: 10px 0px;
     color: rgb(8, 8, 8);
     background-color: white;
     font-size: 15px;
+    outline: none;
 }
 
 #appt{
     width: auto;
     height: 2.5rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     padding: 10px;
     margin: 10px 0px;
     color: rgb(8, 8, 8);
     background-color: white;
     font-size: 15px;
+    outline: none;
 }
 
 .namesInput input:hover{
@@ -71,13 +72,13 @@
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    filter: invert(1) brightness(100%) sepia(100%) saturate(1000000%) hue-rotate(70deg);
+    filter: invert(1) brightness(100%) sepia(100%) saturate(1000000%) hue-rotate(deg);
     font-size: 20px;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    filter: invert(1) brightness(100%) sepia(100%) saturate(1000000%) hue-rotate(70deg);
+    filter: invert(1) brightness(100%) sepia(100%) saturate(100000%) hue-rotate(deg);
     font-size: 20px;
 }
 .divNomeFicha{
@@ -91,7 +92,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .nomeFicha{
     font-weight: bold;
     font-size: 1.5rem;
-    color: #01C380;
+    color: #00BF63;
     margin-bottom: 0.5rem;
 }
 
@@ -99,12 +100,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     height: 2.5rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.251);
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     padding: 0.5rem;
     margin: 10px 0 ;
     color: rgb(8, 8, 8);
     background-color: white;
     font-size: 15px;
+    outline: none;
 }
 
 .espacoBtn {
@@ -116,18 +118,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .espacoBtn button {
-    width: 9rem;
+    width: 100%;
     height: 2.5rem;
     border: 0;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     margin-top: 1rem;
-    color: white;
+    color: #0A0609;
+    transition: 0.3s ease-in-out;
 }
 
-#btnAgendar{
-    background-color: #01C380;
-}
 
 .divInputHoras{
     width: 100%;
@@ -142,11 +142,54 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     height: 2.5rem;
 }
 
+.espacoCheks{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.novoCliente{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0rem 2rem;
+}
+
+.novoCliente p{
+    font-size: 1rem;
+    color: #00BF63;
+    margin-top: 1rem;
+    margin-left: 0.3rem;
+}
+
+.clienteJaAtendido{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.clienteJaAtendido input{
+    border-radius: 2rem;
+}
+
+.clienteJaAtendido p{
+    font-size: 1rem;
+    color: #00BF63;
+    margin-top: 1rem;
+    margin-left: 0.3rem;
+}
 
 @media (min-width: 600px) and (max-width: 1024px) { 
     .body{
         border: 0.1rem solid rgba(0, 0, 0, 0.526);
-        margin-top: 15vh;
     }
 
     .namesInput input {

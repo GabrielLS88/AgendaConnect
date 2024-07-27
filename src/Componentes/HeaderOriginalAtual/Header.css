@@ -9,7 +9,7 @@
 .menuParteDeCima{
     width: 100%;
     height: 100%;
-    background-color: #01C380;
+    background-color: #00BF63;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,7 +27,7 @@
 
 
 #marca{
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color:white;
   display: flex;
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: center;
   padding: 0rem 0.5rem 0rem 2rem;
-  font-size: 2.3rem;
+  font-size: 2rem;
   cursor: pointer;
   transition: 0.3s ease-in-out;
   color: white;
@@ -98,8 +98,8 @@
 
 .blocoMenu {
     width: 15%;
-    height: 100vh;
-    background-color: #039663;
+    height: auto;
+    background-color: #16aa63;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -163,7 +163,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 0.5rem;
     z-index: 999;
 }
 
@@ -177,16 +176,13 @@
 }
 
 #linksMenu:hover{
-    color: #E8751A;
+    color: #0A0609;
     font-size: 1.1rem;
 }
 
 #logoIconMenu{
     font-size: 1.2rem;
 }
-
-
-
 
 .blocoLogout{
     width: 100%;
