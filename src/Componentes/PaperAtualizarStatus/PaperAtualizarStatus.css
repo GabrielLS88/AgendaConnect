@@ -177,7 +177,6 @@
     .blocoPaperAtualizarStatus {
         width: 90%;
         height: auto;
-        top: -45vh;
     }
     .espacoButonsPaper{
        flex-direction: column;

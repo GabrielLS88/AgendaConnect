@@ -79,7 +79,6 @@
     color: #00BF63;
     font-size: 1rem;
     padding: 0.2rem;
-    border-radius: 0.2rem 0rem 0rem 0rem; 
     font-weight: bold;
     text-align: start;
     flex-direction: row;
@@ -98,7 +97,6 @@
     padding: 0.2rem;
 }
 
-
 .valorDescricaoSemanal{
     width: 100%;
     height: auto;
@@ -108,47 +106,28 @@
     color: #00BF63;
     font-size: 1rem;
     text-align: center;
-    border-radius: 0rem 0.2rem 0rem 0rem;
     font-weight: bold;
     text-align: start;
     padding: 0.2rem;
 }
 
-.formaDePagamento{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #00BF63;
-    font-size: 1rem;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 0rem 0rem 0.2rem 0rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-#escritaDiv{
-    color: rgba(0, 0, 0, 0.692);
+#escritaDivSemanal{
+    color: white;
     font-weight: normal;
     margin-left: 0.2rem;
+    margin-right: 0.2rem;
 }
 
-.preenchimento{
-    width: 4.5%;
-}
-
-#escritahora{
-    color: black;
+#escritahoraSemanal{
+    color: white;
     font-weight: normal;
-    margin: 0rem 0.2rem;
+    margin-left: 0.3rem;
+    margin-right: 0.2rem;
 }
 
 .escritaCarregando{
     font-size: 1.5rem;
 }
-
 
 .espacoButtonDeleteContato{
     width: 100%;
@@ -181,8 +160,8 @@
     margin-bottom: 0.5rem;
 }
 
-/*Para tamanho de tela para CELULARES */
 @media (max-width: 600px) {
+
     .nomeDataDia{
         padding-left: 0px;
         font-size: 20px;
@@ -195,37 +174,45 @@
       height: auto;
       margin: 15px 0px;
     }
+
     .blocoNomeSemanal{
-        width: 100%;
+        width: 95%;
         height: 100%;
         font-size: 1rem;
+        margin: 0;
     }
+
     .blocoHoraInicialSemanal{
-        width: 100%;
+        width: 95%;
         height: 100%;
         font-size: 1rem;
         padding: 0.3rem 0rem;
     }
     
     .valorDescricaoSemanal{
-        width: 100%;
+        width: 95%;
         height: 100%;
         font-size: 1rem;
         padding: 0.1rem;
     }
+
     #ladoDeBaixo{
         height: 6rem;
     }
+
     .ladoDeCima{
         height: 6rem;
     }
+
     .notData{
         text-align: center;
     }
+
     .espacoButtonDeleteContato{
         flex-direction: column;
         margin-top: 1rem;
     }
+
     #btnTrashClient{
         width: 95%;
     }

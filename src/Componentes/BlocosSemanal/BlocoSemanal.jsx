@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './BlocoSemanal.css';
-import Alerta from '../../Componentes/Alerta/Alerta'
+import Alerta from '../../Componentes/Alerta/Alerta';
 import PaperAtualizarStatus from '../../Componentes/PaperAtualizarStatus/PaperAtualizarStatus';
 
 const Blocos = () => {
@@ -37,8 +37,14 @@ const Blocos = () => {
 
   const inverterDataIsoParaBr = (dataIso) => {
     if (dataIso && dataIso !== '') {
-      const [ano, mes, dia] = dataIso.split('T')[0].split('-');
-      return `${dia}/${mes}/${ano}`;
+      const dateObj = new Date(dataIso);
+      const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+      let dataFormatada = dateObj.toLocaleDateString('pt-BR', options);
+
+      // Capitaliza apenas o primeiro caractere da string, deixando o restante como está
+      dataFormatada = dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1);
+
+      return dataFormatada;
     }
     return '';
   };
@@ -68,15 +74,21 @@ const Blocos = () => {
       }
     });
 
+    // Ordena os itens de cada grupo por horário inicial
+    for (const data in grupoPorData) {
+      grupoPorData[data].sort((a, b) => {
+        const horarioA = a.horarioinicial.replace(':', '');
+        const horarioB = b.horarioinicial.replace(':', '');
+        return horarioA.localeCompare(horarioB);
+      });
+    }
+
     return grupoPorData;
   };
 
   const obterDataAtual = () => {
     const hoje = new Date();
-    const dia = String(hoje.getDate()).padStart(2, '0');
-    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
-    const ano = hoje.getFullYear();
-    return `${ano}-${mes}-${dia}`;
+    return hoje.toISOString().split('T')[0];
   };
 
   const fecharAlerta = () => {
@@ -142,14 +154,14 @@ const Blocos = () => {
                 <div key={index} className="divBlocoSemanal">
                   <div className='espacoDosBlocosSemanal'>
                     <div className="ladoDeCimaSemanal">
-                      <div id="nomeCliente" className="blocoNomeSemanal"><div id='escritaDiv'>Cliente:</div> {item.nome}</div>
+                      <div id="nomeCliente" className="blocoNomeSemanal"><div id='escritaDivSemanal'>Cliente:</div> {item.nome}</div>
                       <div id="horarioInicial" className="blocoHoraInicialSemanal">
-                        <div id='escritahora'>Horário:</div>
+                        <div id='escritahoraSemanal'>Horário:</div>
                         {item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''} 
-                        <div id='escritahora'> ás </div>
+                        <div id='escritahoraSemanal'> às </div>
                         {item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}
                       </div>
-                      <div className="valorDescricaoSemanal"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
+                      <div className="valorDescricaoSemanal"><div id='escritaDivSemanal'>Descrição:</div>{item.descricao}</div>
                     </div>
                     <div className="espacoButtonDeleteContato">
                       <button id='btnTrashClient' onClick={() => funcaoExcluirLead(item.id)}>
