@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './BlocoSemanal.css';
-import Alerta from '../../Componentes/Alerta/Alerta';
+import Alerta from '../../Componentes/Alerta/Alerta'
+import PaperAtualizarStatus from '../../Componentes/PaperAtualizarStatus/PaperAtualizarStatus';
 
 const Blocos = () => {
   const token = localStorage.getItem("tokenParaReq");
@@ -14,6 +15,8 @@ const Blocos = () => {
   const [data, setData] = useState([]);
   const [mensagemAlerta, setMensagemAlerta] = useState('');
   const [exibirAlerta, setExibirAlerta] = useState(false);
+  const [idPaperAtualizarStatus, setIdPaperAtualizarStatus] = useState('');
+  const [exibirPaperAtualizarStatus, setExibirPaperAtualizarStatus] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,6 +85,17 @@ const Blocos = () => {
     window.location.href = "/home";
   };
 
+  const fecharPaperAtualizarStatus = () => {
+    setExibirPaperAtualizarStatus(false);
+    setIdPaperAtualizarStatus('');
+    window.location.href = "/home";
+  };
+
+  const chamarPaper = (idUser) => {
+    setIdPaperAtualizarStatus(idUser);
+    setExibirPaperAtualizarStatus(true);
+  }
+
   const ordenarPorData = (grupoPorData) => {
     const datasOrdenadas = Object.keys(grupoPorData).sort((a, b) => {
       const dataA = new Date(a.split('/').reverse().join('/'));
@@ -140,8 +154,11 @@ const Blocos = () => {
                       <div className="valorDescricaoSemanal"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
                     </div>
                     <div className="espacoButtonDeleteContato">
-                      <button onClick={() => funcaoExcluirLead(item.id)}>
+                      <button id='btnTrashClient' onClick={() => funcaoExcluirLead(item.id)}>
                         <i className="bi bi-trash"></i>
+                      </button>
+                      <button id='btnCheckFinishClient' onClick={() => chamarPaper(item.id)}>
+                        <i className="bi bi-person-check"></i>
                       </button>
                     </div>
                   </div>
@@ -169,6 +186,7 @@ const Blocos = () => {
     <div>
       {data.length > 0 ? processarDados(grupoOrdenado, dataAtual, [0, 1, 2, 3, 4, 5, 6]) : <div className='escritaCarregando'>Carregando...</div>}
       {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
+      {exibirPaperAtualizarStatus && idPaperAtualizarStatus && (<PaperAtualizarStatus id={idPaperAtualizarStatus} fecharPaperAtualizarStatus={fecharPaperAtualizarStatus} />)}
     </div>
   );
 }

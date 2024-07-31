@@ -1,4 +1,4 @@
-import Header from '../../Componentes/HeaderOriginalAtual/Header';
+import Header from '../../Componentes/Header/Header';
 import Blocos from '../../Componentes/Blocos/Blocos'
 //import Progress from '../../Componentes/Progress/App';
 import './Historico.css'

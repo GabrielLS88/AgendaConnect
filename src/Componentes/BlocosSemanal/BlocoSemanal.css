@@ -166,14 +166,28 @@
     width: 100%;
     height: auto;
     padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.espacoButtonDeleteContato button{
-    width: 98%;
+#btnTrashClient{
+    width: 45%;
     height: auto;
     padding: 0.2rem;
     border: 0;
     background-color: #FF0000;
+    color: white;
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+#btnCheckFinishClient{
+    width: 45%;
+    height: auto;
+    padding: 0.2rem;
+    border: 0;
+    background-color: #00BF63;
     color: white;
     border-radius: 0.3rem;
     margin-bottom: 0.5rem;
@@ -217,5 +231,15 @@
     }
     .notData{
         text-align: center;
+    }
+    .espacoButtonDeleteContato{
+        flex-direction: column;
+    }
+    #btnTrashClient{
+        width: 95%;
+    }
+    
+    #btnCheckFinishClient{
+        width: 95%;
     }
   }

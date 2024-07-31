@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Header from '../../Componentes/HeaderOriginalAtual/Header';
+import Header from '../../Componentes/Header/Header';
 import './Agendamento.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
 
