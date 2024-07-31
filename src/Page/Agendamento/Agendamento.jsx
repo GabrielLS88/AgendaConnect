@@ -20,16 +20,13 @@ function Agendamento() {
 
   const coletarTamanhoId = async (urlParaApi, token) => {
     try {
-      console.log("Fetching ID size from API:", urlParaApi);
       const response = await fetch(`${urlParaApi}?action=ColetarId&token_acess=${token}`, {
         method: 'GET',
         redirect: 'follow'
       });
       const result = await response.json();
-      console.log("Received ID size:", result.length);
       return result.length;
     } catch (error) {
-      console.error('Error fetching ID size:', error);
       return null;
     }
   };
@@ -55,17 +52,14 @@ function Agendamento() {
 
     const nomecliente = nomeInput.value;
     const data = dataInput.value;
-    const valor = valorInput ? valorInput.value : ''; // Valor pode ser opcional
+    const valor = valorInput ? valorInput.value : '';
     const horarioinicial = horaInicialInput.value;
     const horariofinal = horaFinalInput.value;
-    const descricao = descricaoInput ? descricaoInput.value : ''; // Descrição pode ser opcional
-    const pagamento = opcoesPagamento ? opcoesPagamento.value : ''; // Pagamento pode ser opcional
+    const descricao = descricaoInput ? descricaoInput.value : '';
+    const pagamento = opcoesPagamento ? opcoesPagamento.value : '';
     const urlParaApi = localStorage.getItem("urlPlanilha");
     const token = localStorage.getItem("tokenParaReq");
 
-    console.log("Collected data:", {
-      nomecliente, data, valor, horarioinicial, horariofinal, descricao, pagamento, urlParaApi, token
-    });
 
     if (!nomecliente || !data || !horarioinicial || !horariofinal) {
       setMensagemAlerta('Alguns dados obrigatórios não foram preenchidos!');
@@ -86,18 +80,13 @@ function Agendamento() {
 
     try {
       const requestUrl = `${urlParaApi}?action=Create&token_acess=${token}&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=${id}`;
-      console.log("Sending request to API:", requestUrl);
-
       const response = await fetch(requestUrl, {
         method: 'GET',
         redirect: 'follow'
       });
       const result = await response.text();
-      console.log("Response from API:", result);
-
-      setMensagemAlerta('Agendamento realizado com sucesso!');
+      setMensagemAlerta(result);
     } catch (error) {
-      console.error("Error during fetch:", error);
       setMensagemAlerta(`Erro ao realizar o agendamento: ${error.message}`);
     } finally {
       setExibirAlerta(true);
@@ -122,7 +111,7 @@ function Agendamento() {
                   checked={novoCliente} 
                   onChange={() => setNovoCliente(true)} 
                 />
-                <p>Novo Cliente</p>
+                <p>Novo Agendamento</p>
               </div>
               <div className="clienteJaAtendido">
                 <input 
@@ -132,7 +121,7 @@ function Agendamento() {
                   checked={!novoCliente} 
                   onChange={() => setNovoCliente(false)} 
                 />
-                <p>Cliente Já Atendido</p>
+                <p>Já Atendido</p>
               </div>
             </div>
           </div>

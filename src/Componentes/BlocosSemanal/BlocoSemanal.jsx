@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './BlocoSemanal.css';
+import Alerta from '../../Componentes/Alerta/Alerta';
 
 const Blocos = () => {
   const token = localStorage.getItem("tokenParaReq");
@@ -11,6 +12,8 @@ const Blocos = () => {
   const apiUrl = `${url}?action=${action}&token_acess=${token_acess}`;
 
   const [data, setData] = useState([]);
+  const [mensagemAlerta, setMensagemAlerta] = useState('');
+  const [exibirAlerta, setExibirAlerta] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +25,7 @@ const Blocos = () => {
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
-        console.error(error.message);
+        return null
       }
     };
 
@@ -73,6 +76,12 @@ const Blocos = () => {
     return `${ano}-${mes}-${dia}`;
   };
 
+  const fecharAlerta = () => {
+    setExibirAlerta(false);
+    setMensagemAlerta('');
+    window.location.href = "/home";
+  };
+
   const ordenarPorData = (grupoPorData) => {
     const datasOrdenadas = Object.keys(grupoPorData).sort((a, b) => {
       const dataA = new Date(a.split('/').reverse().join('/'));
@@ -87,10 +96,26 @@ const Blocos = () => {
     return grupoOrdenado;
   };
 
+  const funcaoExcluirLead = async (id) => {
+    const token = localStorage.getItem("tokenParaReq");
+    const urlParaApi = localStorage.getItem("urlPlanilha");
+
+    try {
+      const response = await fetch(`${urlParaApi}?token_acess=${token}&action=Delete&id=${id}`, {
+        method: 'GET',
+        redirect: 'follow'
+      });
+      const result = await response.text();
+      setMensagemAlerta(result);
+      setExibirAlerta(true);
+    } catch (error) {
+      setMensagemAlerta(error);
+      setExibirAlerta(true);
+    }
+  };
+
   const processarDados = (grupoPorData, dataAtual, diasDasDatas) => {
     const elementosRenderizados = [];
-    console.log(grupoPorData);
-
     for (let i = 0; i < diasDasDatas.length; i++) {
       const data = new Date(dataAtual);
       data.setDate(data.getDate() + diasDasDatas[i]);
@@ -100,12 +125,12 @@ const Blocos = () => {
         elementosRenderizados.push(
           <div className="divPrincipal" key={dataBr}>
             <div className="nomeDataDia">{dataBr}</div>
-            <div className="containerBloco">
+            <div className="containerBlocoSemanal">
               {grupoPorData[dataBr].map((item, index) => (
-                <div key={index} className="divBloco">
+                <div key={index} className="divBlocoSemanal">
                   <div className='espacoDosBlocos'>
                     <div className="ladoDeCima">
-                      <div id="nomeCliente" className="blocoNomeSemanal">{item.id} - {item.nome}</div>
+                      <div id="nomeCliente" className="blocoNomeSemanal">{item.nome}</div>
                       <div id="horarioInicial" className="blocoHoraInicialSemanal">
                         <div id='escritahora'>Horário das</div>
                         {item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''} 
@@ -113,6 +138,11 @@ const Blocos = () => {
                         {item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}
                       </div>
                       <div className="valorDescricaoSemanal"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
+                    </div>
+                    <div className="espacoButtonDeleteContato">
+                      <button onClick={() => funcaoExcluirLead(item.id)}>
+                        <i className="bi bi-trash"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -128,7 +158,6 @@ const Blocos = () => {
         <div className='notData' key='noData'><h1>Não possui clientes agendados</h1></div>
       );
     }
-    console.log(elementosRenderizados);
     return elementosRenderizados;
   };
 
@@ -139,6 +168,7 @@ const Blocos = () => {
   return (
     <div>
       {data.length > 0 ? processarDados(grupoOrdenado, dataAtual, [0, 1, 2, 3, 4, 5, 6]) : <div className='escritaCarregando'>Carregando...</div>}
+      {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
     </div>
   );
 }

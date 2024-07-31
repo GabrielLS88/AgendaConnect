@@ -71,15 +71,11 @@ function SingIn() {
             <input id='passwordUser' className='inputSingPasswordLogin' style={{ pointerEvents: loading ? 'none' : 'auto' }} type={passwordVisivel ? "text" : "password"} placeholder='Senha' />
             <i 
               id='btnVizualizarPasswordLogin' 
-              className={`bi ${passwordVisivel ? "bi-eye-fill" : "bi-eye-slash-fill"}`} 
+              className={`bi ${passwordVisivel ? "bi-eye" : "bi-eye-slash"}`} 
               onClick={converteParaTexto}
             ></i>
           </div>
           <button className='btnEntrarLogin' onClick={ClickEntrar} style={{cursor: loading ? "not-allowed" : "pointer"}}>Entrar</button>
-          <div className="blocoLinksLogin">
-            <a id='linksBoxLogin1' href="#">Esqueceu a senha?</a>
-            <a id='linksBoxLogin2' href="/signup">Novo Cliente?</a>
-          </div>
         </div>
       </div>
     </div>

@@ -1,27 +1,17 @@
 import { useState } from 'react';
 import './Header.css';
-import Alerta from '../Alerta/Alerta';
-
 function Header() {
-  const [exibirAlerta, setExibirAlerta] = useState(false);
   const [menuAberto, setMenuAberto] = useState(false);
 
   const ClickLogout = () => {
     localStorage.clear();
   };
-
-  const fecharAlerta = () => {
-    setExibirAlerta(false);
-  };
-
-
   const OpenMenu = () => {
     setMenuAberto(!menuAberto);
   };
 
   return (
     <div className='bodyHeader'>
-      {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
       <div className='menuParteDeCima'>
         <div className="divIconeMenu">
           <i

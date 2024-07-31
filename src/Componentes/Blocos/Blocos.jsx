@@ -24,7 +24,7 @@ const Blocos = () => {
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
-      console.error(error.message);
+      return null
     } finally {
       setLoading(false);
     }
@@ -32,7 +32,6 @@ const Blocos = () => {
 
   const fazerPesquisaHistorico = () => {
     const mesSelecionado = document.getElementById('opcoesPagamentoConverterLead').value;
-    console.log(mesSelecionado)
     setMes(mesSelecionado);
     fetchData(mesSelecionado);
   };

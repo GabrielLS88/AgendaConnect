@@ -2,13 +2,13 @@
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: #3E3A3B;
+    background-color: #121214;
 }
 
 .divBory{
     width: 100%;
     height: auto;
-    background-color: #3E3A3B;
+    background-color: #121214;
     color: white;
 }
 
@@ -16,14 +16,14 @@
     width: 100%;
     height: auto;
     margin-top: 15vh;
-    background-color: #3E3A3B;
+    background-color: #121214;
 }
 
 .divBarraProgress{
     width: 100%;
     height: auto;
     padding: 0rem 4rem;
-    background-color: #3E3A3B;
+    background-color: #121214;
 }
 
 @media (min-width: 600px) and (max-width: 1024px) { 
