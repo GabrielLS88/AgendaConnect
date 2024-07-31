@@ -82,7 +82,6 @@ const Blocos = () => {
   const fecharAlerta = () => {
     setExibirAlerta(false);
     setMensagemAlerta('');
-    window.location.href = "/home";
   };
 
   const fecharPaperAtualizarStatus = () => {
