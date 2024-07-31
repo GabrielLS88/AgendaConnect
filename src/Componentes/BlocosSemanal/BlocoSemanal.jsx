@@ -87,7 +87,6 @@ const Blocos = () => {
   const fecharPaperAtualizarStatus = () => {
     setExibirPaperAtualizarStatus(false);
     setIdPaperAtualizarStatus('');
-    window.location.href = "/home";
   };
 
   const chamarPaper = (idUser) => {
@@ -141,11 +140,11 @@ const Blocos = () => {
             <div className="containerBlocoSemanal">
               {grupoPorData[dataBr].map((item, index) => (
                 <div key={index} className="divBlocoSemanal">
-                  <div className='espacoDosBlocos'>
-                    <div className="ladoDeCima">
-                      <div id="nomeCliente" className="blocoNomeSemanal">{item.nome}</div>
+                  <div className='espacoDosBlocosSemanal'>
+                    <div className="ladoDeCimaSemanal">
+                      <div id="nomeCliente" className="blocoNomeSemanal"><div id='escritaDiv'>Cliente:</div> {item.nome}</div>
                       <div id="horarioInicial" className="blocoHoraInicialSemanal">
-                        <div id='escritahora'>Horário das</div>
+                        <div id='escritahora'>Horário:</div>
                         {item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''} 
                         <div id='escritahora'> ás </div>
                         {item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}

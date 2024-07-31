@@ -33,21 +33,22 @@ function PaperAtualizarStatus({ id, fecharPaperAtualizarStatus }) {
       <div className="blocoPaperAtualizarStatus">
         <div className="blocoUpdateLead">
           <div className="subBlocoUpdate">
-            <p>Olá, qual o valor e a forma de pagamento para Atualizar?</p>
+              <p>Dados de pagamento</p>
             <div className="localInputs">
+              <p style={{fontSize:"1rem",margin:"0rem 0rem 0.2rem"}}>Valor do serviço</p>
               <input
                 type="text"
                 id="inputValorConverterLead"
-                placeholder='Valor'
+                placeholder='R$0,00'
                 value={valor}
                 onChange={(e) => setValor(e.target.value)}
               />
+              <p style={{fontSize:"1rem",margin:"0rem 0rem 0.2rem"}}>Forma de pagamento</p>
               <select
                 id="opcoesPagamentoConverterLead"
                 value={pagamento}
                 onChange={(e) => setPagamento(e.target.value)}
               >
-                <option value="">Forma de pagamento</option>
                 <option value="Dinheiro">Dinheiro</option>
                 <option value="Pix">Pix</option>
                 <option value="Débito">Débito</option>
@@ -56,7 +57,7 @@ function PaperAtualizarStatus({ id, fecharPaperAtualizarStatus }) {
               </select>
             </div>
             {loading && <div className='escritaCarregando'>Atualizando...</div>}
-            {result && <div className='escritaCarregando'>{result}</div>}
+            {result && <div className='escritaCarregando'><p style={{color:"#00BF63"}}>{result}</p></div>}
           </div>
         </div>
         <div className="espacoButonsPaper">

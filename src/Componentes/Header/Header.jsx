@@ -24,7 +24,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className={`blocoMenu ${menuAberto ? 'show' : 'hide'}`}>
+      <div className={`blocoMenuHeader ${menuAberto ? 'show' : 'hide'}`}>
         <div className="blocoLinks">
           <div id='divLinks'><a id='linksMenu' href="/home">Home</a></div>
           <div id='divLinks'><a id='linksMenu' href="/agenda">Agendamento</a></div>
