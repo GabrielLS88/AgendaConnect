@@ -34,7 +34,7 @@ function Agendamento() {
   const handleAgendar = async () => {
     setIsSubmitting(true);
 
-    // Validating elements before accessing their properties
+    // Validando elementos antes de acessar suas propriedades
     const nomeInput = document.getElementById('nomeInput');
     const dataInput = document.getElementById('dataInput');
     const valorInput = document.getElementById('valorInput');
@@ -59,7 +59,6 @@ function Agendamento() {
     const pagamento = opcoesPagamento ? opcoesPagamento.value : '';
     const urlParaApi = localStorage.getItem("urlPlanilha");
     const token = localStorage.getItem("tokenParaReq");
-
 
     if (!nomecliente || !data || !horarioinicial || !horariofinal) {
       setMensagemAlerta('Alguns dados obrigatórios não foram preenchidos!');
@@ -91,6 +90,19 @@ function Agendamento() {
     } finally {
       setExibirAlerta(true);
       setIsSubmitting(false);
+      resetForm(); // Chama a função para limpar o formulário
+    }
+  };
+
+  const resetForm = () => {
+    document.getElementById('nomeInput').value = '';
+    document.getElementById('dataInput').value = '';
+    document.getElementById('valorInput').value = '';
+    document.getElementById('horaInicialInput').value = '';
+    document.getElementById('horaFinalInput').value = '';
+    document.getElementById('descricaoInput').value = '';
+    if (document.getElementById('opcoesPagamento')) {
+      document.getElementById('opcoesPagamento').value = '';
     }
   };
 
@@ -98,8 +110,8 @@ function Agendamento() {
     <div className='bodyAgendamento'>
       {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
       <Header />
-      <div className="corpo">
-        <div className="body">
+      <div className="corpoAgendamento">
+        <div className="bodyCorpo">
           <div className='divNomeFicha'>
             <h1 className='nomeFicha'>Ficha Cliente</h1>
             <div className="espacoCheks">
@@ -121,7 +133,7 @@ function Agendamento() {
                   checked={!novoCliente} 
                   onChange={() => setNovoCliente(false)} 
                 />
-                <p>Já Atendido</p>
+                <p>Atendido Finalizado</p>
               </div>
             </div>
           </div>

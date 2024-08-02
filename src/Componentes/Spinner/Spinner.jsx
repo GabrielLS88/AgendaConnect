@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Spiner.css';
+import './Spinner.css';
 
 function ScreenreaderLabelExample() {
   const [setProgress] = useState(0);

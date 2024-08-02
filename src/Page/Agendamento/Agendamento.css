@@ -9,23 +9,18 @@
     background-color: #121214;
 }
 
-.corpo{
+.corpoAgendamento{
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #121214;
+    margin: 7rem 0rem 2rem;
+
 }
-.body{
-    width: 90%;
-    height: auto;
-    border: 0;
-    border-radius: 0.2rem;
-    padding: 20px;
-    margin-top: 4rem;
-}
+
 .namesInput{
     width: 100%;
     height: auto;
@@ -119,13 +114,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .espacoBtn button {
     width: 100%;
-    height: 2.5rem;
+    height: 3rem;
     border: 0;
     border-radius: 0.2rem;
     cursor: pointer;
     margin-top: 1rem;
-    color: #0A0609;
+    color: black;
     transition: 0.3s ease-in-out;
+    margin-bottom: 2rem;
 }
 
 
@@ -165,6 +161,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     color: #00BF63;
     margin-top: 1rem;
     margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
 .clienteJaAtendido{
@@ -185,11 +182,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     color: #00BF63;
     margin-top: 1rem;
     margin-left: 0.3rem;
+    margin-right: 0.3rem;
 }
 
-@media (min-width: 600px) and (max-width: 1024px) { 
-    .body{
-        border: 0.1rem solid rgba(0, 0, 0, 0.526);
+@media (min-width: 200px) and (max-width: 1024px) {
+
+    .corpoAgendamento{
+        margin-top: 8rem;
+    }
+    .divNomeFicha{
+        flex-direction: column;
     }
 
     .namesInput input {
@@ -219,5 +221,32 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     .nomeFicha{
         font-size: 2rem;
         margin-bottom: 0.5rem;
+    }
+    
+    .espacoCheks{
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .novoCliente{
+        margin: 0;
+    }
+
+    .clienteJaAtendido p{
+        font-size: 1.5rem;
+        margin-right: 0rem;
+        color: white;
+        margin-left: 0.5rem;
+    }
+
+    .novoCliente p{
+        font-size: 1.5rem;
+        margin-right: 0rem;
+        color: white;
+        margin-left: 0.5rem;
     }
 }

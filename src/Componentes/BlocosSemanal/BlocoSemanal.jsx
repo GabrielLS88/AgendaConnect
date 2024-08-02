@@ -40,8 +40,6 @@ const Blocos = () => {
       const dateObj = new Date(dataIso);
       const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
       let dataFormatada = dateObj.toLocaleDateString('pt-BR', options);
-
-      // Capitaliza apenas o primeiro caractere da string, deixando o restante como está
       dataFormatada = dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1);
 
       return dataFormatada;

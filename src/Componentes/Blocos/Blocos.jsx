@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Blocos.css';
-import Spinner from '../Spinner/Spiner'; // Corrigi o caminho para Spinner
+import Spinner from '../Spinner/Spinner'; // Corrigi o caminho para Spinner
+import Alerta from '../../Componentes/Alerta/Alerta';
 
 const Blocos = () => {
   const token = localStorage.getItem("tokenParaReq");
@@ -9,9 +10,20 @@ const Blocos = () => {
   const action = 'ReadPassandoMes';
   const token_acess = token;
 
+  const obterNomeMesAtual = () => {
+    const meses = [
+      'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 
+      'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
+    ];
+    const mesAtual = new Date().getMonth(); // Retorna o índice do mês atual (0-11)
+    return meses[mesAtual];
+  };
+
   const [data, setData] = useState([]);
-  const [mes, setMes] = useState('janeiro');
+  const [mes, setMes] = useState(obterNomeMesAtual);
   const [loading, setLoading] = useState(false);
+  const [mensagemAlerta, setMensagemAlerta] = useState('');
+  const [exibirAlerta, setExibirAlerta] = useState(false);
 
   const fetchData = async (mes) => {
     try {
@@ -24,11 +36,16 @@ const Blocos = () => {
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
-      return null
+      setMensagemAlerta(error.message);
+      setExibirAlerta(true);
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchData(mes);
+  }, [mes]);
 
   const fazerPesquisaHistorico = () => {
     const mesSelecionado = document.getElementById('opcoesPagamentoConverterLead').value;
@@ -37,13 +54,15 @@ const Blocos = () => {
   };
 
   const inverterDataIsoParaBr = (dataIso) => {
-    if (dataIso !== 0 && dataIso !== '') {
-      const parteData = dataIso.split('T')[0];
-      const [ano, mes, dia] = parteData.split('-');
-      const dataBr = `${dia}/${mes}/${ano}`;
-      return dataBr;
+    if (dataIso && dataIso !== '') {
+      const dateObj = new Date(dataIso);
+      const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+      let dataFormatada = dateObj.toLocaleDateString('pt-BR', options);
+      dataFormatada = dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1);
+
+      return dataFormatada;
     }
-    return undefined;
+    return '';
   };
 
   const groupDataByDate = (data) => {
@@ -73,6 +92,45 @@ const Blocos = () => {
     return grupoPorData;
   };
 
+  const funcaoExcluirLead = async (id) => {
+    console.log(id);
+    const token = localStorage.getItem("tokenParaReq");
+    const urlParaApi = localStorage.getItem("urlPlanilha");
+    const mesSelecionado = document.getElementById('opcoesPagamentoConverterLead').value;
+    console.log(mesSelecionado);
+  
+    try {
+      const response = await fetch(`${urlParaApi}?token_acess=${token}&action=DeletePorMes&id=${id}&mesParaDeletar=${mesSelecionado}`, {
+        method: 'GET',
+        redirect: 'follow'
+      });
+  
+      console.log(`Response status: ${response.status}`);
+      const result = await response.text();
+      console.log(`Response text: ${result}`);
+  
+      if (response.ok) {
+        setMensagemAlerta('Lead excluído com sucesso.');
+        // Atualize a lista após a exclusão
+        fetchData(mesSelecionado);
+      } else {
+        throw new Error(result);
+      }
+  
+      setExibirAlerta(true);
+    } catch (error) {
+      console.error(`Erro ao excluir lead: ${error.message}`);
+      setMensagemAlerta(error.message);
+      setExibirAlerta(true);
+    }
+  };
+  
+
+  const fecharAlerta = () => {
+    setExibirAlerta(false);
+    setMensagemAlerta('');
+  };
+
   const ordenarPorData = (grupoPorData) => {
     const datasOrdenadas = Object.keys(grupoPorData).sort((a, b) => {
       const dataA = new Date(a.split('/').reverse().join('/'));
@@ -88,6 +146,14 @@ const Blocos = () => {
     return grupoOrdenado;
   };
 
+  const ordenarHorarios = (items) => {
+    return items.sort((a, b) => {
+      const horarioA = a.horarioinicial.replace(':', '');
+      const horarioB = b.horarioinicial.replace(':', '');
+      return horarioA.localeCompare(horarioB);
+    });
+  };
+
   const processarDados = (grupoPorData) => {
     const elementosRenderizados = [];
 
@@ -96,19 +162,20 @@ const Blocos = () => {
       const nomeIgualZero = grupoPorData[dataBr].some(objeto => objeto.nome === 'iahual');
 
       if (!todosValoresZero && !nomeIgualZero) {
+        const itensOrdenados = ordenarHorarios(grupoPorData[dataBr]);
         elementosRenderizados.push(
           <div className="divPrincipal" key={dataBr}>
             <div className="nomeDataDia">{dataBr}</div>
             <div className="containerBloco">
-              {grupoPorData[dataBr].map((item, index) => (
+              {itensOrdenados.map((item, index) => (
                 <div key={`${dataBr}-${index}`} className="divBloco">
                   <div className='espacoDosBlocos'>
                     <div className="ladoDeCima">
-                      <div id="nomeCliente" className="blocoNome">{item.id} - {item.nome}</div>
+                      <div id="nomeCliente" className="blocoNome">{item.nome}</div>
                       <div id="horarioInicial" className="blocoHoraInicial">
-                        <div id='escritahora'>Horário das</div>
+                        <div id='escritahora'>Horário:</div>
                         {item.horarioinicial ? item.horarioinicial.replace(/-/g, ':') : ''}
-                        <div id='escritahora'> ás </div>
+                        <div id='escritahora'> às </div>
                         {item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}
                       </div>
                       <div className="valorServico"><div id='escritaDiv'>Valor:</div>R${item.valor}</div>
@@ -116,6 +183,11 @@ const Blocos = () => {
                     <div id="ladoDeBaixo">
                       <div className="descricao"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
                       <div className="formaDePagamento"><div id='escritaDiv'>Forma de pagamento:</div>{item.pagamento}</div>
+                    </div>
+                    <div className="espacoButtonDeleteContato">
+                      <button id='btnTrashClientBlocos' onClick={() => funcaoExcluirLead(item.id)}>
+                        <i className="bi bi-trash"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -162,6 +234,7 @@ const Blocos = () => {
         </div>
         <div className="espacoLoading">
           {loading && <Spinner />} {/* Renderiza o spinner quando loading é true */}
+          {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
         </div>
       </div>
       <div>
