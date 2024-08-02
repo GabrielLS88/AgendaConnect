@@ -110,7 +110,7 @@ const Blocos = () => {
       console.log(`Response text: ${result}`);
   
       if (response.ok) {
-        setMensagemAlerta('Lead excluído com sucesso.');
+        setMensagemAlerta('Agendamento excluído com sucesso.');
         // Atualize a lista após a exclusão
         fetchData(mesSelecionado);
       } else {
@@ -119,7 +119,7 @@ const Blocos = () => {
   
       setExibirAlerta(true);
     } catch (error) {
-      console.error(`Erro ao excluir lead: ${error.message}`);
+      console.error(`Erro ao excluir Agendamento: ${error.message}`);
       setMensagemAlerta(error.message);
       setExibirAlerta(true);
     }

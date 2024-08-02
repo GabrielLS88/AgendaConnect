@@ -11,7 +11,7 @@
 
 .blocoAlerta {
     width: 30%;
-    height: 30%;
+    height: auto;
     background-color: #3E3A3B;
     position: fixed;
     top: 0;
@@ -31,7 +31,7 @@
         transform: translateY(-100%);
     }
     100% {
-        transform: translateY(0%);
+        transform: translateY(100%);
     }
 }
 
@@ -75,6 +75,6 @@
 @media (max-width: 900px) { 
     .blocoAlerta {
         width: 80%;
-        height: 30%;
+        height: auto;
     }
   }

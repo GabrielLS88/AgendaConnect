@@ -24,10 +24,10 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    animation: alertaDescendo 1s forwards;
+    animation: paperDescendo 1s forwards;
 }
 
-@keyframes alertaDescendo {
+@keyframes paperDescendo {
     0% {
         transform: translateY(-100%);
     }
