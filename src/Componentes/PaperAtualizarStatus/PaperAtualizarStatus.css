@@ -1,7 +1,7 @@
 .bodyPaperAtualizarStatus{
   width: 100%;
-  height: 100%;
-  background-color: #1a1a1ac2;
+  height: 100dvh;
+  background-color: #1a1a1aec;
   position: absolute;
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@
         transform: translateY(-100%);
     }
     100% {
-        transform: translateY(100%);
+        transform: translateY(0%);
     }
 }
 
@@ -165,7 +165,7 @@
   .bodyPaperAtualizarStatus{
     width: 100%;
     height: 100dvh;
-    background-color: #1a1a1ac2;
+    background-color: #1a1a1aec;
     position: absolute;
     display: flex;
     align-items: center;
