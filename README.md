@@ -1,8 +1,23 @@
-# React + Vite
+Projeto de Agendamento para Salão de Beleza
+Este é um projeto desenvolvido com React e Vite usando JavaScript, com o objetivo de facilitar o agendamento de clientes para um salão de beleza.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Funcionalidades
+Cadastro de Clientes: Permite adicionar novos clientes ao sistema.
+Agendamento de Serviços: Clientes podem agendar serviços específicos em horários disponíveis.
+Gerenciamento de Agendamentos: Visualização, edição e cancelamento de agendamentos existentes.
+Notificações: Envio de lembretes e confirmações de agendamento via e-mail.
 
-Currently, two official plugins are available:
+Tecnologias Utilizadas
+React: Biblioteca JavaScript para construção de interfaces de usuário.
+Vite: Ferramenta de build para desenvolvimento rápido de projetos web.
+JavaScript: Linguagem de programação utilizada.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Instalação
+Para rodar o projeto localmente, siga os passos abaixo:
+Clone o repositório: git clone https://github.com/seu-usuario/seu-repositorio.git
+Navegue até o diretório do projeto: cd agendaconnect
+Instale as dependências: npm install
+Inicie o servidor de desenvolvimento: npm run dev
+
+Uso
+Depois de iniciar o servidor, acesse http://localhost:3000 no seu navegador. Você verá a interface de agendamento onde pode cadastrar clientes e agendar serviços.
