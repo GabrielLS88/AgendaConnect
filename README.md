@@ -1,9 +1,10 @@
-Projeto de Agendamento para Salão de Beleza
+--Projeto de Agendamento para Salão de Beleza--
 
 Este é um projeto desenvolvido com React e Vite usando JavaScript, com o objetivo de facilitar o agendamento de clientes para um salão de beleza.
 
 
-Funcionalidades
+
+--Funcionalidades--
 
 Cadastro de Clientes: Permite adicionar novos clientes ao sistema.
 
@@ -14,7 +15,8 @@ Gerenciamento de Agendamentos: Visualização, edição e cancelamento de agenda
 Notificações: Envio de lembretes e confirmações de agendamento via e-mail.
 
 
-Tecnologias Utilizadas
+
+--Tecnologias Utilizadas--
 
 React: Biblioteca JavaScript para construção de interfaces de usuário.
 
@@ -24,7 +26,8 @@ JavaScript: Linguagem de programação utilizada.
 
 
 
-Instalação
+
+--Instalação--
 
 Para rodar o projeto localmente, siga os passos abaixo:
 
@@ -37,7 +40,8 @@ Instale as dependências: npm install
 Inicie o servidor de desenvolvimento: npm run dev
 
 
-Uso
+
+--Uso--
 
 Depois de iniciar o servidor, acesse http://localhost:3000 no seu navegador. Você verá a interface de agendamento onde pode cadastrar clientes e agendar serviços.
 
