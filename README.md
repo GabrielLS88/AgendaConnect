@@ -31,7 +31,7 @@ JavaScript: Linguagem de programação utilizada.
 
 Para rodar o projeto localmente, siga os passos abaixo:
 
-Clone o repositório: git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/GabrielLS88/AgendaConnect.git)
+Clone o repositório: git clone https://github.com/GabrielLS88/AgendaConnect.git
 
 Navegue até o diretório do projeto: cd agendaconnect
 
