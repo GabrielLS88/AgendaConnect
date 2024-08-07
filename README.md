@@ -1,4 +1,5 @@
 Projeto de Agendamento para Salão de Beleza
+
 Este é um projeto desenvolvido com React e Vite usando JavaScript, com o objetivo de facilitar o agendamento de clientes para um salão de beleza.
 
 Funcionalidades
