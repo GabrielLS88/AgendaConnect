@@ -85,7 +85,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     
 }
 .nomeFicha{
-    font-weight: bold;
     font-size: 1.5rem;
     color: #00BF63;
     margin-bottom: 0.5rem;
@@ -119,7 +118,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     border-radius: 0.2rem;
     cursor: pointer;
     margin-top: 1rem;
-    color: black;
+    color:white;
     transition: 0.3s ease-in-out;
     margin-bottom: 2rem;
 }
@@ -196,7 +195,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     .namesInput input {
         width: 100%;
-        height: 4rem;
+        height: 3rem;
         border: 0.1rem solid rgba(0, 0, 0, 0.526)
     }
 
@@ -208,13 +207,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     #opcoesPagamento{
         width: 100%;
-        height: 4rem;
+        height: 3rem;
         border: 0.1rem solid rgba(0, 0, 0, 0.526)
+
     }
 
     .divInputHoras input{
         width: 49%;
-        height: 4rem;
+        height: 3rem;
         border: 0.1rem solid rgba(0, 0, 0, 0.526)
     }
 
@@ -234,6 +234,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     .novoCliente{
         margin: 0;
+        padding: 0;
     }
 
     .clienteJaAtendido p{

@@ -186,7 +186,7 @@ const Blocos = () => {
                     </div>
                     <div className="espacoButtonDeleteContato">
                       <button id='btnTrashClientBlocos' onClick={() => funcaoExcluirLead(item.id)}>
-                        <i className="bi bi-trash"></i>
+                        Excluir <i className="bi bi-trash"></i>
                       </button>
                     </div>
                   </div>

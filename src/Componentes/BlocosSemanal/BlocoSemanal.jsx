@@ -130,6 +130,9 @@ const Blocos = () => {
       const result = await response.text();
       setMensagemAlerta(result);
       setExibirAlerta(true);
+      setTimeout(function() {
+        window.location.href = "/home";
+      }, 3000);
     } catch (error) {
       setMensagemAlerta(error);
       setExibirAlerta(true);
@@ -146,7 +149,7 @@ const Blocos = () => {
       if (grupoPorData[dataBr] && grupoPorData[dataBr].length > 0) {
         elementosRenderizados.push(
           <div className="divPrincipal" key={dataBr}>
-            <div className="nomeDataDia">{dataBr}</div>
+            <div className="nomeDataDiaSemanal">{dataBr}</div>
             <div className="containerBlocoSemanal">
               {grupoPorData[dataBr].map((item, index) => (
                 <div key={index} className="divBlocoSemanal">
@@ -162,11 +165,11 @@ const Blocos = () => {
                       <div className="valorDescricaoSemanal"><div id='escritaDivSemanal'>Descrição:</div>{item.descricao}</div>
                     </div>
                     <div className="espacoButtonDeleteContato">
-                      <button id='btnTrashClient' onClick={() => funcaoExcluirLead(item.id)}>
-                        <i className="bi bi-trash"></i>
-                      </button>
                       <button id='btnCheckFinishClient' onClick={() => chamarPaper(item.id)}>
-                        <i className="bi bi-person-check"></i>
+                        Finalizar <i className="bi bi-person-check"></i>
+                      </button>
+                      <button id='btnTrashClient' onClick={() => funcaoExcluirLead(item.id)}>
+                      Excluir <i className="bi bi-trash"></i>
                       </button>
                     </div>
                   </div>

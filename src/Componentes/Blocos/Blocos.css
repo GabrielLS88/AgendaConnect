@@ -13,7 +13,6 @@
     padding-left: 4.5rem;
     font-size: 1.5rem;
     color: white;
-    font-weight: bold;
 }
 
 /* Espaço que localiza as DIVS */
@@ -215,24 +214,24 @@
 }
 
 #btnTrashClientBlocos {
-    width: 99%;
+    width: 10%;
     height: auto;
     padding: 0.2rem 0rem;
     border: 0;
-    background-color: #FF0000;
+    background-color: #a70303;
     color: white;
     border-radius: 0.3rem;
     margin-bottom: 0.5rem;
+    margin-left: 0.3rem;
 }
   
 
 /*Para tamanho de tela para CELULARES */
 @media (max-width: 600px) {
     .nomeDataDia{
-        padding-left: 0px;
+        padding: 0;
         font-size: 20px;
-        text-align: start;
-        padding-left: 10px;
+        text-align: center;
     }
     .divBloco {
       width: 95%;
@@ -270,5 +269,17 @@
         width: 100%;
         padding: 0rem 1rem;
         margin: 0.5rem;
+    }
+
+    #btnTrashClientBlocos {
+        width: 99%;
+        height: auto;
+        padding: 0.3rem 0rem;
+        border: 0;
+        background-color: #FF0000;
+        color: white;
+        border-radius: 0.3rem;
+        margin-bottom: 0.5rem;
+        margin-left: 0;
     }
   }

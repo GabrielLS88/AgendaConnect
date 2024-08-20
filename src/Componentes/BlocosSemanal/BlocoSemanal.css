@@ -6,13 +6,12 @@
 }
 
 /* Estilo da DATA em cima dos blocos */
-.nomeDataDia{
+.nomeDataDiaSemanal{
     width: 100%;
     height: auto;
     text-align: start;
     padding-left: 5rem;
     font-size: 1.5rem;
-    font-weight: bold;
 }
 
 /* Espaço que localiza as DIVS */
@@ -134,38 +133,37 @@
     padding: 0.2rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: start;
 }
 
 #btnTrashClient{
-    width: 49%;
+    width: 10%;
     height: auto;
-    padding: 0.2rem;
+    padding: 0.3rem 0rem;
     border: 0;
-    background-color: #FF0000;
+    background-color: #e00909b6;
     color: white;
     border-radius: 0.3rem;
-    margin-bottom: 0.5rem;
+    margin: 0rem 0.5rem 0.5rem;
 }
 
 #btnCheckFinishClient{
-    width: 49%;
+    width:10%;
     height: auto;
-    padding: 0.2rem;
+    padding: 0.3rem 0rem;
     border: 0;
     background-color: #00BF63;
     color: white;
     border-radius: 0.3rem;
-    margin-bottom: 0.5rem;
+    margin: 0rem 0rem 0.5rem 0.2rem;
 }
 
 @media (max-width: 600px) {
 
-    .nomeDataDia{
-        padding-left: 0px;
+    .nomeDataDiaSemanal{
         font-size: 20px;
-        text-align: start;
-        padding-left: 20px;
+        text-align: center;
+        padding: 0;
     }
     
     .divBloco {
@@ -214,9 +212,11 @@
 
     #btnTrashClient{
         width: 95%;
+        
     }
     
     #btnCheckFinishClient{
         width: 95%;
+        margin: 0rem 0rem 0.5rem 0rem;
     }
   }
