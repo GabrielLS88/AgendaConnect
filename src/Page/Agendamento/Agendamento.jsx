@@ -78,7 +78,7 @@ function Agendamento() {
     }
 
     try {
-      const requestUrl = `${urlParaApi}?action=Create&token_acess=${token}&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=${id}`;
+      const requestUrl = `${urlParaApi}?action=Create&token_acess=${token}&nomecliente=${nomecliente}&data=${dataReversed}&valor=${valor}&horarioinicial=${horarioinicial}&horariofinal=${horariofinal}&descricao=${descricao}&pagamento=${pagamento}&id=`;
       const response = await fetch(requestUrl, {
         method: 'GET',
         redirect: 'follow'

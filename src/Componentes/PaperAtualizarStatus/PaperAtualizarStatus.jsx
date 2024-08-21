@@ -8,6 +8,7 @@ function PaperAtualizarStatus({ id, fecharPaperAtualizarStatus }) {
   const [loading, setLoading] = useState(false);
 
   const funcaoAtualizarLead = async () => {
+    console.log(id,valor,pagamento)
     setLoading(true);
     const token = localStorage.getItem("tokenParaReq");
     const urlParaApi = localStorage.getItem("urlPlanilha");

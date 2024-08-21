@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './BlocoSemanal.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
 import PaperAtualizarStatus from '../../Componentes/PaperAtualizarStatus/PaperAtualizarStatus';
+import Spinner from '../Spinner/Spinner';
 
 const Blocos = () => {
   const token = localStorage.getItem("tokenParaReq");
@@ -12,6 +13,7 @@ const Blocos = () => {
 
   const apiUrl = `${url}?action=${action}&token_acess=${token_acess}`;
 
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [mensagemAlerta, setMensagemAlerta] = useState('');
   const [exibirAlerta, setExibirAlerta] = useState(false);
@@ -21,12 +23,14 @@ const Blocos = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error(`Erro na solicitação: ${response.status}`);
         }
         const jsonData = await response.json();
         setData(jsonData);
+        setLoading(false)
       } catch (error) {
         return null
       }
@@ -72,7 +76,6 @@ const Blocos = () => {
       }
     });
 
-    // Ordena os itens de cada grupo por horário inicial
     for (const data in grupoPorData) {
       grupoPorData[data].sort((a, b) => {
         const horarioA = a.horarioinicial.replace(':', '');
@@ -195,7 +198,8 @@ const Blocos = () => {
 
   return (
     <div>
-      {data.length > 0 ? processarDados(grupoOrdenado, dataAtual, [0, 1, 2, 3, 4, 5, 6]) : <div className='escritaCarregando'>Carregando...</div>}
+      {loading && <Spinner />}
+      {data.length > 0 ? processarDados(grupoOrdenado, dataAtual, [0, 1, 2, 3, 4, 5, 6]): null}
       {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
       {exibirPaperAtualizarStatus && idPaperAtualizarStatus && (<PaperAtualizarStatus id={idPaperAtualizarStatus} fecharPaperAtualizarStatus={fecharPaperAtualizarStatus} />)}
     </div>

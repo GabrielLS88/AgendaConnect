@@ -9,10 +9,11 @@
 .nomeDataDia{
     width: 100%;
     height: auto;
-    text-align: start;
+    text-align: center;
     padding-left: 4.5rem;
     font-size: 1.5rem;
     color: white;
+    font-weight: bold;
 }
 
 /* Espaço que localiza as DIVS */
@@ -191,9 +192,21 @@
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     border-radius: 1rem;
     margin-top: 1rem;
+}
+
+#opcoesPagamentoConverterLeadHistorico {
+    width: 10%;
+    height: 2.5rem;
+    margin: 0rem 0.5rem;
+    padding: 0.3rem;
+    outline: none;
+    border: 0;
+    border-radius: 0.2rem;
+    text-align: center;
+    cursor: pointer;
 }
 
 #btnPesquisarHistorico{
@@ -202,7 +215,7 @@
     border: 0;
     border-radius: 0.2rem;
     color: white;
-    background-color: #636363;
+    background-color: #00BF63;
     transition: 0.3s ease-in-out;
 }
 
@@ -218,7 +231,7 @@
     height: auto;
     padding: 0.2rem 0rem;
     border: 0;
-    background-color: #a70303;
+    background-color: #e00909b6;
     color: white;
     border-radius: 0.3rem;
     margin-bottom: 0.5rem;

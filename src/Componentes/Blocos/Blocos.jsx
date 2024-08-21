@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Blocos.css';
-import Spinner from '../Spinner/Spinner'; // Corrigi o caminho para Spinner
+import Spinner from '../Spinner/Spinner';
 import Alerta from '../../Componentes/Alerta/Alerta';
 
 const Blocos = () => {
@@ -12,7 +12,7 @@ const Blocos = () => {
 
   const obterNomeMesAtual = () => {
     const meses = [
-      'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 
+      'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
     ];
     const mesAtual = new Date().getMonth(); // Retorna o índice do mês atual (0-11)
@@ -48,7 +48,7 @@ const Blocos = () => {
   }, [mes]);
 
   const fazerPesquisaHistorico = () => {
-    const mesSelecionado = document.getElementById('opcoesPagamentoConverterLead').value;
+    const mesSelecionado = document.getElementById('opcoesPagamentoConverterLeadHistorico').value;
     setMes(mesSelecionado);
     fetchData(mesSelecionado);
   };
@@ -96,27 +96,26 @@ const Blocos = () => {
     console.log(id);
     const token = localStorage.getItem("tokenParaReq");
     const urlParaApi = localStorage.getItem("urlPlanilha");
-    const mesSelecionado = document.getElementById('opcoesPagamentoConverterLead').value;
+    const mesSelecionado = document.getElementById('opcoesPagamentoConverterLeadHistorico').value;
     console.log(mesSelecionado);
-  
+
     try {
       const response = await fetch(`${urlParaApi}?token_acess=${token}&action=DeletePorMes&id=${id}&mesParaDeletar=${mesSelecionado}`, {
         method: 'GET',
         redirect: 'follow'
       });
-  
+
       console.log(`Response status: ${response.status}`);
       const result = await response.text();
       console.log(`Response text: ${result}`);
-  
+
       if (response.ok) {
         setMensagemAlerta('Agendamento excluído com sucesso.');
-        // Atualize a lista após a exclusão
         fetchData(mesSelecionado);
       } else {
         throw new Error(result);
       }
-  
+
       setExibirAlerta(true);
     } catch (error) {
       console.error(`Erro ao excluir Agendamento: ${error.message}`);
@@ -124,7 +123,7 @@ const Blocos = () => {
       setExibirAlerta(true);
     }
   };
-  
+
 
   const fecharAlerta = () => {
     setExibirAlerta(false);
@@ -178,11 +177,11 @@ const Blocos = () => {
                         <div id='escritahora'> às </div>
                         {item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}
                       </div>
-                      <div className="valorServico"><div id='escritaDiv'>Valor:</div>R${item.valor}</div>
+                      {item.valor > 0 && (<div className="valorServico"><div id='escritaDiv'>Valor:</div>R${item.valor}</div>)}
                     </div>
                     <div id="ladoDeBaixo">
                       <div className="descricao"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
-                      <div className="formaDePagamento"><div id='escritaDiv'>Forma de pagamento:</div>{item.pagamento}</div>
+                      {item.pagamento != '' && (<div className="formaDePagamento"><div id='escritaDiv'>Forma de pagamento:</div>{item.pagamento}</div>)}
                     </div>
                     <div className="espacoButtonDeleteContato">
                       <button id='btnTrashClientBlocos' onClick={() => funcaoExcluirLead(item.id)}>
@@ -216,7 +215,7 @@ const Blocos = () => {
       <div className="blocoSelecaoMes">
         <div className="subBlocoSelecaoMes">
           <p>Por favor selecione o mês que deseja consultar</p>
-          <select id="opcoesPagamentoConverterLead" defaultValue={mes}>
+          <select id="opcoesPagamentoConverterLeadHistorico" defaultValue={mes}>
             <option value="janeiro">Janeiro</option>
             <option value="fevereiro">Fevereiro</option>
             <option value="março">Março</option>
