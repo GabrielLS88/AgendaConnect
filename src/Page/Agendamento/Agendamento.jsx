@@ -115,16 +115,7 @@ function Agendamento() {
           <div className='divNomeFicha'>
             <h1 className='nomeFicha'>Ficha Cliente</h1>
             <div className="espacoCheks">
-              <div className="novoCliente">
-                <input 
-                  type="checkbox" 
-                  id="novoClienteCheckbox" 
-                  name="novoCliente" 
-                  checked={novoCliente} 
-                  onChange={() => setNovoCliente(true)} 
-                />
-                <p>Novo Agendamento</p>
-              </div>
+              
               <div className="clienteJaAtendido">
                 <input 
                   type="checkbox" 
@@ -133,7 +124,17 @@ function Agendamento() {
                   checked={!novoCliente} 
                   onChange={() => setNovoCliente(false)} 
                 />
-                <p>Atendido Finalizado</p>
+                <p>Serviço já realizado</p>
+              </div>
+              <div className="novoCliente">
+                <input 
+                  type="checkbox" 
+                  id="novoClienteCheckbox" 
+                  name="novoCliente" 
+                  checked={novoCliente} 
+                  onChange={() => setNovoCliente(true)} 
+                />
+                <p>Agendamento</p>
               </div>
             </div>
           </div>

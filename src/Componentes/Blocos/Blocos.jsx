@@ -214,7 +214,7 @@ const Blocos = () => {
     <div>
       <div className="blocoSelecaoMes">
         <div className="subBlocoSelecaoMes">
-          <p>Por favor selecione o mês que deseja consultar</p>
+          <p>Qual mês deseja consultar?</p>
           <select id="opcoesPagamentoConverterLeadHistorico" defaultValue={mes}>
             <option value="janeiro">Janeiro</option>
             <option value="fevereiro">Fevereiro</option>

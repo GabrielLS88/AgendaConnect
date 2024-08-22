@@ -33,8 +33,8 @@
 .namesInput input {
     width: 100%;
     height: 2.5rem;
-    border: 0.1rem solid rgba(0, 0, 0, 0.251);
-    border-radius: 0.2rem;
+    border: 0;
+    border-radius: 1rem;
     padding: 10px;
     margin: 10px 0px;
     color: rgb(8, 8, 8);
@@ -46,8 +46,8 @@
 #appt{
     width: auto;
     height: 2.5rem;
-    border: 0.1rem solid rgba(0, 0, 0, 0.251);
-    border-radius: 0.2rem;
+    border: 0;
+    border-radius: 1rem;
     padding: 10px;
     margin: 10px 0px;
     color: rgb(8, 8, 8);
@@ -82,19 +82,19 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     display: flex;
     justify-content: start;
     align-items: center;
-    
 }
 .nomeFicha{
-    font-size: 1.5rem;
-    color: #00BF63;
+    font-size: 2rem;
+    color: white;
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 #opcoesPagamento{
     width: 100%;
     height: 2.5rem;
-    border: 0.1rem solid rgba(0, 0, 0, 0.251);
-    border-radius: 0.2rem;
+    border: 0;
+    border-radius: 1rem;
     padding: 0.5rem;
     margin: 10px 0 ;
     color: rgb(8, 8, 8);
@@ -115,7 +115,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     height: 3rem;
     border: 0;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     margin-top: 1rem;
     color:white;
@@ -135,6 +135,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .divInputHoras input{
     width: 49%;
     height: 2.5rem;
+    border-radius: 1rem;
 }
 
 .espacoCheks{
@@ -170,6 +171,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 0rem 0rem 0rem 2rem;
 }
 
 .clienteJaAtendido input{
@@ -220,7 +222,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     .nomeFicha{
         font-size: 2rem;
-        margin-bottom: 0.5rem;
+        margin:1.5rem 0rem 0rem 0rem;
     }
     
     .espacoCheks{
@@ -232,22 +234,21 @@ input[type="time"]::-webkit-calendar-picker-indicator {
         flex-direction: column;
     }
 
-    .novoCliente{
-        margin: 0;
-        padding: 0;
-    }
-
     .clienteJaAtendido p{
         font-size: 1.5rem;
         margin-right: 0rem;
-        color: white;
         margin-left: 0.5rem;
     }
 
     .novoCliente p{
         font-size: 1.5rem;
         margin-right: 0rem;
-        color: white;
         margin-left: 0.5rem;
     }
+
+    .clienteJaAtendido,.novoCliente{
+        margin: 0;
+    }
+
+    
 }

@@ -295,4 +295,8 @@
         margin-bottom: 0.5rem;
         margin-left: 0;
     }
+    #opcoesPagamentoConverterLeadHistorico {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
   }

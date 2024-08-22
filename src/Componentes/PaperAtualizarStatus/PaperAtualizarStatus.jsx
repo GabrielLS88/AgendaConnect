@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './PaperAtualizarStatus.css';
 
 function PaperAtualizarStatus({ id, fecharPaperAtualizarStatus }) {
@@ -34,7 +34,7 @@ function PaperAtualizarStatus({ id, fecharPaperAtualizarStatus }) {
       <div className="blocoPaperAtualizarStatus">
         <div className="blocoUpdateLead">
           <div className="subBlocoUpdate">
-              <p>Dados de pagamento</p>
+              <p style={{fontWeight:"bold"}}>Encerramento do Atendimento</p>
             <div className="localInputs">
               <p style={{fontSize:"1rem",margin:"0rem 0rem 0.2rem"}}>Valor do serviço</p>
               <input
