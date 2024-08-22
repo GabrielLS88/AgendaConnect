@@ -29,8 +29,7 @@ function Header() {
           <div id='divLinks'><a id='linksMenu' href="/home">Home</a></div>
           <div id='divLinks'><a id='linksMenu' href="/agenda">Agendamento</a></div>
           <div id='divLinks'><a id='linksMenu' href="/historico">Historico</a></div>
-          <div id='divLinks'><a id='linksMenu' href="/home">Produtos</a></div>
-          <div id='divLinks'><a id='linksMenu' href="/home">Financeiro</a></div>
+          <div id='divLinks'><a id='linksMenu' href="/financeiro">Financeiro</a></div>
           <div id='divLinks'><a id='linksMenu' onClick={ClickLogout} href="/">Sair</a></div>
         </div>
       </div>
