@@ -15,7 +15,7 @@ const Blocos = () => {
       'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
       'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
     ];
-    const mesAtual = new Date().getMonth(); // Retorna o índice do mês atual (0-11)
+    const mesAtual = new Date().getMonth();
     return meses[mesAtual];
   };
 
