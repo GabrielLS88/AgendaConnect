@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from '../../Componentes/Header/Header';
 import './Agendamento.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
+import Form from 'react-bootstrap/Form';
 
 function Agendamento() {
   const [exibirAlerta, setExibirAlerta] = useState(false);
@@ -115,26 +116,31 @@ function Agendamento() {
           <div className='divNomeFicha'>
             <h1 className='nomeFicha'>Ficha Cliente</h1>
             <div className="espacoCheks">
-              
+
               <div className="clienteJaAtendido">
-                <input 
-                  type="checkbox" 
-                  id="clienteJaAtendidoCheckbox" 
-                  name="clienteJaAtendido" 
-                  checked={!novoCliente} 
-                  onChange={() => setNovoCliente(false)} 
-                />
-                <p>Serviço já realizado</p>
+                <Form>
+                  <Form.Check
+                    type="switch"
+                    id="clienteJaAtendidoCheckbox"
+                    style={{color:'white'}}
+                    label="Serviço já prestado"
+                    checked={!novoCliente}
+                    onChange={() => setNovoCliente(false)}
+                  />
+                  
+                </Form>
               </div>
               <div className="novoCliente">
-                <input 
-                  type="checkbox" 
-                  id="novoClienteCheckbox" 
-                  name="novoCliente" 
-                  checked={novoCliente} 
-                  onChange={() => setNovoCliente(true)} 
-                />
-                <p>Agendamento</p>
+                <Form>
+                <Form.Check
+                    type="switch"
+                    label="Novo agendamento"
+                    style={{color:'white'}}
+                    id="disabled-custom-switch"
+                    checked={novoCliente}
+                    onChange={() => setNovoCliente(true)}
+                  />
+                </Form>
               </div>
             </div>
           </div>
@@ -174,10 +180,10 @@ function Agendamento() {
             <input id="descricaoInput" type="text" placeholder="Descrição" />
           </div>
           <div className="espacoBtn">
-            <button 
-              id="btnAgendar" 
-              onClick={handleAgendar} 
-              style={{ cursor: isSubmitting ? "wait" : "pointer", backgroundColor: isSubmitting? "#056e3b": "#00BF63" }} 
+            <button
+              id="btnAgendar"
+              onClick={handleAgendar}
+              style={{ cursor: isSubmitting ? "wait" : "pointer", backgroundColor: isSubmitting ? "#056e3b" : "#00BF63" }}
               disabled={isSubmitting}
             >
               {isSubmitting ? "Aguarde..." : "Agendar"}

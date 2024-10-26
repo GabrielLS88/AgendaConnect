@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './SignIn.css';
 import Alerta from '../../Componentes/Alerta/Alerta';
+import imagem from './Imagem/imagemLogin.jpg'
 
 function SingIn() {
   const [passwordVisivel, setPasswordVisivel] = useState(false);
@@ -63,7 +64,10 @@ function SingIn() {
   return (
     <div className='bodySingIn'>
       {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
-      <div className="ladoLogin">
+      <section className='espacoDaImagem'>
+        <img src={imagem} alt="" />
+      </section>
+      <section className="ladoLogin">
         <div className="boxLogin">
           <h2 id='tituloBoxLogin'>Login</h2>
           <input id='nameUser' className='inputSingLogin' type="text" disabled={loading}  placeholder='Usuário' />
@@ -77,7 +81,7 @@ function SingIn() {
           </div>
           <button className='btnEntrarLogin' onClick={ClickEntrar} style={{cursor: loading ? "not-allowed" : "pointer"}}>Entrar</button>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -178,14 +178,16 @@ const Blocos = () => {
                         {item.horariofinal ? item.horariofinal.replace(/-/g, ':') : ''}
                       </div>
                       {item.valor > 0 && (<div className="valorServico"><div id='escritaDiv'>Valor:</div>R${item.valor}</div>)}
+                      {item.valor == 0 && (<div className="valorServico"><div id='escritaDiv'>Valor:</div><p style={{color:'#e00909b6'}}>Não finalizado</p></div>)}
                     </div>
                     <div id="ladoDeBaixo">
                       <div className="descricao"><div id='escritaDiv'>Descrição:</div>{item.descricao}</div>
                       {item.pagamento != '' && (<div className="formaDePagamento"><div id='escritaDiv'>Forma de pagamento:</div>{item.pagamento}</div>)}
+                      {item.pagamento == '' && (<div className="formaDePagamento"><div id='escritaDiv'>Forma de pagamento:</div><p style={{color:'#e00909b6'}}>Não finalizado</p></div>)}
                     </div>
                     <div className="espacoButtonDeleteContato">
                       <button id='btnTrashClientBlocos' onClick={() => funcaoExcluirLead(item.id)}>
-                        Excluir <i className="bi bi-trash"></i>
+                        Excluir
                       </button>
                     </div>
                   </div>
@@ -214,7 +216,8 @@ const Blocos = () => {
     <div>
       <div className="blocoSelecaoMes">
         <div className="subBlocoSelecaoMes">
-          <p>Qual mês deseja consultar?</p>
+          <p>Mês que deseja consultar?</p>
+          <div className="espacosInputsConsultaMes">
           <select id="opcoesPagamentoConverterLeadHistorico" defaultValue={mes}>
             <option value="janeiro">Janeiro</option>
             <option value="fevereiro">Fevereiro</option>
@@ -230,6 +233,7 @@ const Blocos = () => {
             <option value="dezembro">Dezembro</option>
           </select>
           <button id='btnPesquisarHistorico' onClick={fazerPesquisaHistorico}>Pesquisar</button>
+          </div>
         </div>
         <div className="espacoLoading">
           {loading && <Spinner />} {/* Renderiza o spinner quando loading é true */}

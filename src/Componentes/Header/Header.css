@@ -18,7 +18,7 @@
 }
 
 .divIconeMenu {
-  width: auto;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -39,12 +39,21 @@
 }
 
 .blocoNomeMarca {
-  width: auto;
+  width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  margin-left: 20px;
   text-align: center;
+}
+
+.espacoLinks{
+  width: 40%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #iconMenu {
@@ -146,10 +155,9 @@
   transition: 0.3s ease-in-out;
 }
 
-#linksMenu:hover {
-  color: #0A0609;
+/* #linksMenu:hover {
   font-size: 1.1rem;
-}
+} */
 
 #logoIconMenu {
   font-size: 1.2rem;
@@ -180,6 +188,11 @@
   width: auto !important;
   height: auto !important;
   font-size: 1.1rem;
+}
+
+.button-tooltip{
+  background-color: white;
+  color: black;
 }
 
 @media (max-width: 900px) {

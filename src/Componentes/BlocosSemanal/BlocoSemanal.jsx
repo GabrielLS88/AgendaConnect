@@ -18,6 +18,7 @@ const Blocos = () => {
   const [mensagemAlerta, setMensagemAlerta] = useState('');
   const [exibirAlerta, setExibirAlerta] = useState(false);
   const [idPaperAtualizarStatus, setIdPaperAtualizarStatus] = useState('');
+  const [nomeCliente, setnomeCliente] = useState('');
   const [exibirPaperAtualizarStatus, setExibirPaperAtualizarStatus] = useState(false);
 
   useEffect(() => {
@@ -102,8 +103,9 @@ const Blocos = () => {
     setIdPaperAtualizarStatus('');
   };
 
-  const chamarPaper = (idUser) => {
+  const chamarPaper = (idUser,nomeCliente) => {
     setIdPaperAtualizarStatus(idUser);
+    setnomeCliente(nomeCliente)
     setExibirPaperAtualizarStatus(true);
   }
 
@@ -121,26 +123,7 @@ const Blocos = () => {
     return grupoOrdenado;
   };
 
-  const funcaoExcluirLead = async (id) => {
-    const token = localStorage.getItem("tokenParaReq");
-    const urlParaApi = localStorage.getItem("urlPlanilha");
-
-    try {
-      const response = await fetch(`${urlParaApi}?token_acess=${token}&action=Delete&id=${id}`, {
-        method: 'GET',
-        redirect: 'follow'
-      });
-      const result = await response.text();
-      setMensagemAlerta(result);
-      setExibirAlerta(true);
-      setTimeout(function() {
-        window.location.href = "/home";
-      }, 3000);
-    } catch (error) {
-      setMensagemAlerta(error);
-      setExibirAlerta(true);
-    }
-  };
+  
 
   const processarDados = (grupoPorData, dataAtual, diasDasDatas) => {
     const elementosRenderizados = [];
@@ -155,7 +138,7 @@ const Blocos = () => {
             <div className="nomeDataDiaSemanal">{dataBr}</div>
             <div className="containerBlocoSemanal">
               {grupoPorData[dataBr].map((item, index) => (
-                <div key={index} className="divBlocoSemanal">
+                <div key={index} className="divBlocoSemanal" onClick={() => chamarPaper(item.id,item.nome)}>
                   <div className='espacoDosBlocosSemanal'>
                     <div className="ladoDeCimaSemanal">
                       <div id="nomeCliente" className="blocoNomeSemanal"><div id='escritaDivSemanal'>Cliente:</div> {item.nome}</div>
@@ -168,12 +151,7 @@ const Blocos = () => {
                       <div className="valorDescricaoSemanal"><div id='escritaDivSemanal'>Descrição:</div>{item.descricao}</div>
                     </div>
                     <div className="espacoButtonDeleteContato">
-                      <button id='btnCheckFinishClient' onClick={() => chamarPaper(item.id)}>
-                        Finalizar <i className="bi bi-person-check"></i>
-                      </button>
-                      <button id='btnTrashClient' onClick={() => funcaoExcluirLead(item.id)}>
-                      Excluir <i className="bi bi-trash"></i>
-                      </button>
+                      
                     </div>
                   </div>
                 </div>
@@ -186,7 +164,7 @@ const Blocos = () => {
 
     if (elementosRenderizados.length === 0) {
       elementosRenderizados.push(
-        <div className='notData' key='noData'><h1>Não possui clientes agendados</h1></div>
+        <div className='notData' key='noData' style={{backgroundColor:'#4F4F4F'}}><h1>Não possui clientes agendados</h1></div>
       );
     }
     return elementosRenderizados;
@@ -201,7 +179,7 @@ const Blocos = () => {
       {loading && <Spinner />}
       {data.length > 0 ? processarDados(grupoOrdenado, dataAtual, [0, 1, 2, 3, 4, 5, 6]): null}
       {exibirAlerta && <Alerta mensagem={mensagemAlerta} fecharAlerta={fecharAlerta} />}
-      {exibirPaperAtualizarStatus && idPaperAtualizarStatus && (<PaperAtualizarStatus id={idPaperAtualizarStatus} fecharPaperAtualizarStatus={fecharPaperAtualizarStatus} />)}
+      {exibirPaperAtualizarStatus && idPaperAtualizarStatus && (<PaperAtualizarStatus id={idPaperAtualizarStatus} nomeCliente={nomeCliente} fecharPaperAtualizarStatus={fecharPaperAtualizarStatus} />)}
     </div>
   );
 }

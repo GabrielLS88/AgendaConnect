@@ -3,17 +3,21 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #121214;
+    background-color: #4F4F4F;
   }
   
   .blocoSpiner {
+    width: auto;
+    height: auto;
     text-align: center;
+    background-color: #4F4F4F;
   }
   
   .custom-progress-bar {
     width: 3rem;
     height: 3rem;
     margin-bottom: 1rem;
+    background-color: #4F4F4F;
   }
   
   #escritaLoading {
@@ -21,11 +25,13 @@
     color: white;
     display: flex;
     justify-content: center;
+    background-color: #4F4F4F;
   }
   
   .loading-char {
     display: inline-block;
     animation: jump 1s infinite;
+    background-color: #4F4F4F;
   }
   
   @keyframes jump {

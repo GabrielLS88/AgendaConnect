@@ -6,7 +6,7 @@
     align-items: start;
     justify-content: center;
     z-index: 9;
-    background-color: #121214;
+    background-color: #4F4F4F;
 }
 
 .corpoAgendamento{
@@ -16,10 +16,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #121214;
+    background-color: #4F4F4F;
     margin: 7rem 0rem 2rem;
-
 }
+
+#clienteJaAtendidoCheckbox, #disabled-custom-switch{
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#clienteJaAtendidoCheckbox:focus, #disabled-custom-switch:focus {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  }
 
 .namesInput{
     width: 100%;
@@ -34,7 +42,7 @@
     width: 100%;
     height: 2.5rem;
     border: 0;
-    border-radius: 1rem;
+    border-radius: 5px;
     padding: 10px;
     margin: 10px 0px;
     color: rgb(8, 8, 8);
@@ -47,7 +55,7 @@
     width: auto;
     height: 2.5rem;
     border: 0;
-    border-radius: 1rem;
+    border-radius: 5px;
     padding: 10px;
     margin: 10px 0px;
     color: rgb(8, 8, 8);
@@ -94,7 +102,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     height: 2.5rem;
     border: 0;
-    border-radius: 1rem;
+    border-radius: 5px;
     padding: 0.5rem;
     margin: 10px 0 ;
     color: rgb(8, 8, 8);
@@ -115,7 +123,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 100%;
     height: 3rem;
     border: 0;
-    border-radius: 0.5rem;
+    border-radius: 5px;
     cursor: pointer;
     margin-top: 1rem;
     color:white;
@@ -135,7 +143,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .divInputHoras input{
     width: 49%;
     height: 2.5rem;
-    border-radius: 1rem;
+    border-radius: 5px;
 }
 
 .espacoCheks{

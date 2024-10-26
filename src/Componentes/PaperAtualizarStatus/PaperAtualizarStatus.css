@@ -1,8 +1,8 @@
 .bodyPaperAtualizarStatus {
   width: 100%;
   height: 100dvh;
-  background-color: #1a1a1aec;
-  position: absolute;
+  background-color: #00000079;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@
 }
 
 .blocoPaperAtualizarStatus {
-  width: 30%;
+  width: 40%;
   height: auto;
   background-color: #3E3A3B;
   position: fixed;
@@ -64,6 +64,7 @@
   align-items: center;
   justify-content: center;
   margin: 1rem 0rem;
+  border-bottom: 1px solid black;
 }
 
 .subBlocoUpdate {
@@ -87,12 +88,14 @@
 .localInputs {
   width: 100%;
   height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  flex-direction: column;
 }
 
 #opcoesPagamentoConverterLead {
-  width: 50%;
+  width: 80%;
   height: 2.5rem;
   margin: 0rem 0.5rem;
   padding: 0.3rem;
@@ -101,7 +104,7 @@
   border-radius: 0.2rem;
   text-align: center;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0rem;
 }
 
 select option {
@@ -112,7 +115,7 @@ select option {
 
 #inputValorConverterLead {
   text-align: center;
-  width: 50%;
+  width: 80%;
   height: 2.5rem;
   margin: 0.5rem 0rem;
   padding: 0.3rem;
@@ -121,29 +124,37 @@ select option {
   border-radius: 0.2rem;
 }
 
+.espacoParaInput{
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .espacoButonsPaper {
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #3E3A3B;
 }
 
 #btnClosePaper {
   cursor: pointer !important;
-  width: 25%;
+  width: 30%;
   height: 2.5rem;
   color: white;
   background-color: red;
   border: 0;
   border-radius: 0.2rem;
-  margin-left: 1rem;
 }
 
 #btnAtualizarLead {
   cursor: pointer !important;
-  width: 25%;
+  width: 30%;
   height: 2.5rem;
   border: 0;
   border-radius: 0.2rem;
@@ -159,6 +170,15 @@ select option {
   text-align: center;
   justify-content: center;
   padding: 0rem 0rem 1rem;
+}
+
+#btnTrashClient{
+  width: 30%;
+  height: 2.5rem;
+  border: 0;
+  background-color: yellow;
+  color: black;
+  border-radius: 0.3rem;
 }
 
 @media (max-width: 900px) {
@@ -187,18 +207,28 @@ select option {
   #btnClosePaper {
     width: 60%;
     margin-left: 0;
+    margin-bottom: 1rem;
   }
 
   #btnAtualizarLead {
+    width: 60%;
+  }
+
+  #btnTrashClient{
     width: 60%;
     margin-bottom: 1rem;
   }
 
   #inputValorConverterLead {
-    width: 65%;
+    width: 100%;
   }
 
   #opcoesPagamentoConverterLead {
-    width: 65%;
+    width: 100%;
+  }
+
+  .localInputs{
+    flex-direction: column;
+    width: 100%;
   }
 }
