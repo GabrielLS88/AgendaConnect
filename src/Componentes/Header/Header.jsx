@@ -21,27 +21,27 @@ function Header() {
               placement="bottom"
               overlay={<Tooltip style={{width:'130px', height:'auto'}} id="button-tooltip">Tela inicial</Tooltip>}
             >
-              <a id='linksMenu' href="/home">Home</a>
+              <a id='linksMenu' href="/home"><i id='iconesMenu' class="bi bi-card-list"></i><p>Home</p></a>
             </OverlayTrigger>
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip style={{width:'130px', height:'auto'}} id="button-tooltip">Fazer agendamento</Tooltip>}
             >
-              <a id='linksMenu' href="/agenda">Agendamento</a>
+              <a id='linksMenu' href="/agenda"><i id='iconesMenu'  class="bi bi-calendar2-plus-fill"></i><p>Agendamento</p></a>
             </OverlayTrigger>
             
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip style={{width:'130px', height:'auto'}} id="button-tooltip">Vizualizar todos atendimento</Tooltip>}
             >
-              <a id='linksMenu' href="/historico">Histórico</a>
+              <a id='linksMenu' href="/historico"><i id='iconesMenu' class="bi bi-building-fill-check"></i><p>Histórico</p></a>
             </OverlayTrigger>
 
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip style={{width:'130px', height:'auto'}} id="button-tooltip">Sair de sua conta</Tooltip>}
             >
-               <a id='linksMenu' onClick={ClickLogout} href="/"><i class="bi bi-person-fill"></i> Sair</a>
+               <a id='linksMenu' onClick={ClickLogout} href="/"><i id='iconesMenu'  class="bi bi-person-fill"></i><p> Sair</p></a>
             </OverlayTrigger>
           </div>
         </div>
