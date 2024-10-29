@@ -196,17 +196,38 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 @media (min-width: 200px) and (max-width: 1024px) {
 
-    .corpoAgendamento{
-        margin-top: 8rem;
+    label{
+        font-size: 20px;
     }
+
+    #clienteJaAtendidoCheckbox{
+        background-color: #28a745;
+        border-color: #28a745;
+        font-size: 22px;
+    }
+
+    #disabled-custom-switch{
+        background-color: #28a745;
+        border-color: #28a745;
+        font-size: 22px;
+    }
+
     .divNomeFicha{
         flex-direction: column;
+    }
+
+    .bodyCorpo{
+        width: 80%;
+    }
+
+    .namesInput{
+        margin-top: 1rem;
     }
 
     .namesInput input {
         width: 100%;
         height: 3rem;
-        border: 0.1rem solid rgba(0, 0, 0, 0.526)
+        border: 0.1rem solid rgba(0, 0, 0, 0.526);
     }
 
     #appt{
@@ -230,7 +251,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     .nomeFicha{
         font-size: 2rem;
-        margin:1.5rem 0rem 0rem 0rem;
+        margin:1.5rem 0rem 1rem 0rem;
     }
     
     .espacoCheks{
