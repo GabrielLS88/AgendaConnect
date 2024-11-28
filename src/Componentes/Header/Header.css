@@ -224,7 +224,11 @@
   }
 
   .espacoLinks p{
-    display: none;
+    display: flex;
+    margin: 0;
+  }
+  #linksMenu p {
+    margin-top: 0rem;
   }
 
   #iconesMenu{
